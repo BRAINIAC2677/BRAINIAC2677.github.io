@@ -5,8 +5,8 @@
   import persistent_store from "$lib/stores/persistentstore";
 
   let name = "Asif Azad";
-  let title = "AI Engineer";
-  let currentRole = "Remote AI Engineer at Ministry of Defence, KSA";
+  let title = "Software Engineer specializing in AI/ML";
+  let currentRole = "Remote Software Engineer specializing in AI/ML at Ministry of Defence, KSA";
   let subtitle = "Specializing in AI for Healthcare Solutions";
 
   let isVisible = false;
@@ -190,7 +190,7 @@
             <!-- Main image -->
             <img
               src={dp}
-              alt="Asif Azad - AI Engineer"
+              alt="Asif Azad - Software Engineer specializing in AI/ML"
               class="relative z-10 rounded-2xl w-64 md:w-80 lg:w-96 h-auto aspect-[3/4] object-cover shadow-2xl border-4 border-white dark:border-gray-800 transition-all duration-500 group-hover:scale-105"
             />
             <!-- Floating elements -->
