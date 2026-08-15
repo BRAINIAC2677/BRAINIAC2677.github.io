@@ -28,6 +28,13 @@
             {/each}
         </div>
 
+        <div class="profile__research-interests" aria-label="Research interests">
+            {#each profile.researchInterests as interest, index}
+                {#if index > 0}<span aria-hidden="true">·</span>{/if}
+                <strong>{interest}</strong>
+            {/each}
+        </div>
+
         <nav class="profile__links" aria-label="Primary profile links">
             <a href={`mailto:${profile.email}`}>Email</a>
             <AcademicLink href={profile.scholarUrl} tone="accent">Google Scholar</AcademicLink>
@@ -99,6 +106,29 @@
         color: var(--muted-strong);
         font-size: 0.85rem;
         line-height: 1.7;
+    }
+
+    .profile__research-interests {
+        display: flex;
+        gap: 0.4rem 0.75rem;
+        flex-wrap: wrap;
+        margin-top: 1rem;
+        padding: 0.72rem 0;
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        align-items: center;
+        color: var(--muted-strong);
+        font-size: 0.64rem;
+        letter-spacing: 0.025em;
+        line-height: 1.5;
+    }
+
+    .profile__research-interests span {
+        color: var(--accent);
+    }
+
+    .profile__research-interests strong {
+        font-weight: 700;
     }
 
     .profile__links {
