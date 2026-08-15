@@ -145,9 +145,9 @@
 
         .profile__aside {
             grid-row: 1;
-            width: 100%;
-            max-width: 22rem;
-            grid-template-columns: minmax(8.75rem, 11.5rem) minmax(0, 1fr);
+            width: calc(100% + var(--page-gutter));
+            max-width: 24rem;
+            grid-template-columns: minmax(8.75rem, 10.5rem) minmax(8rem, 1fr);
             gap: 1.6rem;
             align-items: center;
         }

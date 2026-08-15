@@ -74,12 +74,13 @@
 
     @media (max-width: 560px) {
         .news-item {
-            grid-template-columns: 5.25rem 1fr;
-            gap: 0.45rem 0.75rem;
+            grid-template-columns: 1fr;
+            gap: 0.35rem;
+            padding: 0.82rem 0;
         }
 
-        .news-item p {
-            grid-column: 1 / -1;
+        .news-item__category {
+            display: none;
         }
     }
 </style>

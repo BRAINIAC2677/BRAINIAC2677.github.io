@@ -109,11 +109,12 @@
 
     @media (max-width: 640px) {
         .publication {
-            grid-template-columns: 2rem 1fr;
+            grid-template-columns: 1fr;
+            gap: 0.55rem;
         }
 
         .publication__links {
-            grid-column: 2;
+            grid-column: 1;
             display: flex;
             flex-wrap: wrap;
             gap: 1rem;

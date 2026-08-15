@@ -221,6 +221,13 @@
         }
     }
 
+    @media (max-width: 700px) {
+        .rainy-court__motto {
+            font-size: 19px;
+            font-weight: 600;
+        }
+    }
+
     @media (prefers-reduced-motion: reduce) {
         .rainy-court__ball,
         .rainy-court__cloud,
