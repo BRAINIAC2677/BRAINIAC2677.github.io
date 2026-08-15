@@ -8,7 +8,6 @@ export const projects = [
         title: "BUET CSE Courseworks",
         imageUrl: buet_cse_courseworks_poster,
         githubUrl: "https://github.com/BRAINIAC2677/BUET-CSE-Courseworks",
-        youtubeUrl: null,
         tags: ["BUET CSE", "Courseworks"],
         year: "2023",
         description: "This repository contains the links to all of my course works and course related extra works of BUET CSE."
@@ -17,7 +16,6 @@ export const projects = [
         title: "Minimal C Compiler",
         imageUrl: c_compiler_poster,
         githubUrl: "https://github.com/BRAINIAC2677/CSE310-Compiler",
-        youtubeUrl: null,
         tags: ["C", "Flex", "Bison"],
         year: "2023",
         description: "Developed a simplified C compiler as part of the CSE310 coursework. The project progressed through key stages: lexical analysis, grammar rules, syntax analysis (symbol table and parse tree), semantic analysis, and assembly code generation using Flex and Bison."
@@ -26,7 +24,6 @@ export const projects = [
         title: "TaskFlow",
         imageUrl: taskflow_poster,
         githubUrl: "https://github.com/BRAINIAC2677/taskflow",
-        youtubeUrl: null,
         tags: ["Svelte", "Typescript", "Node.js", "postgreSQL"],
         year: "2024",
         description:
@@ -36,7 +33,6 @@ export const projects = [
         title: "Sunshine",
         imageUrl: sunshine_poster,
         githubUrl: "https://github.com/BRAINIAC2677/Sunshine",
-        youtubeUrl: null,
         tags: ["NASA Space Apps Challenge", "React-Native", "Firebase"],
         year: "2021",
         description:
@@ -44,4 +40,3 @@ export const projects = [
     },
 
 ];
-

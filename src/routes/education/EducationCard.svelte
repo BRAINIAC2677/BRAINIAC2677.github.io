@@ -93,7 +93,6 @@
   on:mouseenter={() => (isHovered = true)}
   on:mouseleave={() => (isHovered = false)}
   role="article"
-  tabindex="0"
 >
   <!-- Animated background gradient on hover -->
   <div

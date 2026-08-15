@@ -69,7 +69,6 @@
   on:mouseenter={() => (isHovered = true)}
   on:mouseleave={() => (isHovered = false)}
   role="article"
-  tabindex="0"
 >
   <!-- Background gradient overlay on hover -->
   <div
