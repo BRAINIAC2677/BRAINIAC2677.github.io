@@ -1,12 +1,18 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
 	<meta charset="utf-8" />
 	<link rel="icon" href="%sveltekit.assets%/favicon.ico" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="theme-color" content="#1c1c1d" />
+	<script>
+		const storedTheme = localStorage.getItem("portfolio-theme");
+		const initialTheme = storedTheme === "light" ? "light" : "dark";
+		document.documentElement.dataset.theme = initialTheme;
+		document.querySelector('meta[name="theme-color"]')?.setAttribute("content", initialTheme === "dark" ? "#1c1c1d" : "#ffffff");
+	</script>
 	%sveltekit.head%
-	<title>Asif Azad</title>
 </head>
 
 <body data-sveltekit-preload-data="hover">
