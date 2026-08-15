@@ -25,15 +25,21 @@
                             {item.institution}
                         {/if}
                     </p>
-                    <p class="experience-entry__description">
-                        {#each item.description as part}
-                            {#if part.href}
-                                <AcademicLink href={part.href} tone="accent">{part.text}</AcademicLink>
-                            {:else}
-                                {part.text}
-                            {/if}
+                    <ul class="experience-entry__description">
+                        {#each item.description as bullet}
+                            <li>
+                                {#each bullet as part}
+                                    {#if part.href}
+                                        <AcademicLink href={part.href} tone="accent">{part.text}</AcademicLink>
+                                    {:else if part.isEmphasized}
+                                        <strong>{part.text}</strong>
+                                    {:else}
+                                        {part.text}
+                                    {/if}
+                                {/each}
+                            </li>
                         {/each}
-                    </p>
+                    </ul>
                 </div>
             </article>
         {/each}
@@ -99,9 +105,33 @@
     .experience-entry__description {
         max-width: 48rem;
         margin-top: 0.65rem;
+        margin-bottom: 0;
+        padding-left: 0;
         color: var(--muted);
         font-size: 0.8rem;
         line-height: 1.65;
+        list-style: none;
+    }
+
+    .experience-entry__description li {
+        position: relative;
+        padding-left: 1.05rem;
+    }
+
+    .experience-entry__description li + li {
+        margin-top: 0.42rem;
+    }
+
+    .experience-entry__description li::before {
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+        content: "—";
+    }
+
+    .experience-entry__description strong {
+        color: var(--muted-strong);
+        font-weight: 700;
     }
 
     @media (max-width: 640px) {

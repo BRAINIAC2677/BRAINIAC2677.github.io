@@ -10,6 +10,7 @@ export interface AcademicProfile {
     email: string;
     links: ProfileLink[];
     name: string;
+    researchInterests: string[];
     role: string;
     scholarUrl: string;
     status: string;
@@ -49,11 +50,12 @@ export interface ResearchWork {
 
 export interface RichTextPart {
     href?: string;
+    isEmphasized?: boolean;
     text: string;
 }
 
 export interface AcademicExperience {
-    description: RichTextPart[];
+    description: RichTextPart[][];
     institution: string;
     institutionUrl?: string;
     location: string;

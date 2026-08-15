@@ -14,11 +14,7 @@ export const academicProfile: AcademicProfile = {
             },
             { href: "https://hoques.com/", text: "Professor Ehsan Hoque" },
             {
-                text: ", I develop AI-enabled healthcare systems spanning autism screening, clinical assessment, and intervention in collaboration with major medical cities and hospitals across the country. This work includes a research partnership with the ",
-            },
-            { href: "https://www.media.mit.edu/", text: "MIT Media Lab" },
-            {
-                text: ". More broadly, my work explores responsible and trustworthy AI for high-stakes domains, especially healthcare, through multimodal reasoning and agentic systems. I also collaborated with ",
+                text: ", I work on multimodal AI systems for healthcare in collaboration with major medical cities and hospitals across the country. I have also collaborated with ",
             },
             { href: "https://rizwan09.github.io/", text: "Dr. Md Rizwan Parvez" },
             { text: " at " },
@@ -33,7 +29,9 @@ export const academicProfile: AcademicProfile = {
             { text: "." },
         ],
         [
-            { text: "I earned my BSc in Computer Science & Engineering from " },
+            {
+                text: "More broadly, I am interested in building reliable and responsible multimodal intelligent systems that can reason, interact, and operate safely in consequential real-world environments, particularly high-stakes domains such as healthcare. I earned my BSc in Computer Science & Engineering from ",
+            },
             { href: "https://www.buet.ac.bd/", text: "BUET" },
             {
                 text: " in March 2025. My undergraduate thesis on reliable diagnostic machine learning was supervised by ",
@@ -47,10 +45,8 @@ export const academicProfile: AcademicProfile = {
                 href: "https://www.linkedin.com/in/saifulislam-cse-buet/",
                 text: "Md Saiful Islam",
             },
-            { text: ", a Machine Learning Software Engineer at " },
-            { href: "https://health.google/", text: "Google" },
             {
-                text: ". The resulting paper, ",
+                text: " at Google. The resulting paper, ",
             },
             {
                 href: "https://link.springer.com/chapter/10.1007/978-3-032-00652-3_3",
@@ -73,6 +69,11 @@ export const academicProfile: AcademicProfile = {
         { href: "https://www.linkedin.com/in/asifazad2677", label: "LinkedIn" },
     ],
     name: "Asif Azad",
+    researchInterests: [
+        "Reliable & Trustworthy AI",
+        "Multimodal & Interactive Intelligence",
+        "AI for Healthcare & High-Stakes Domains",
+    ],
     role: "AI Research Engineer",
     scholarUrl: "https://scholar.google.com/citations?user=nDhZSTQAAAAJ",
     status: "Open to Fall 2027 PhD opportunities",
@@ -118,7 +119,7 @@ export const academicUpdates: AcademicUpdate[] = [
         date: "Nov 2025",
     },
     {
-        category: "Academic service",
+        category: "Reviewer",
         content: [
             { text: "Reviewed manuscripts for the October cycle of " },
             { href: "https://aclrollingreview.org/", text: "ACL Rolling Review" },
@@ -367,13 +368,25 @@ export const selectedResearch: ResearchWork[] = [
 export const academicExperience: AcademicExperience[] = [
     {
         description: [
-            {
-                text: "Developing AI-enabled healthcare systems spanning autism screening, clinical assessment, and intervention under ",
-            },
-            { href: "https://hoques.com/", text: "Professor Ehsan Hoque" },
-            {
-                text: ", in collaboration with major medical cities and hospitals across Saudi Arabia.",
-            },
+            [
+                { text: "Co-develop " },
+                { href: "https://digitalharf.modhs.med.sa/", text: "Digital Harf" },
+                {
+                    text: ", a multimodal AI platform for speech and language assessment and intervention, in close collaboration with clinicians and speech-language therapists across MODHS medical centers.",
+                },
+            ],
+            [
+                {
+                    text: "Co-designed the platform’s randomized clinical trial, including the study protocol, IRB and SFDA approval processes, and therapist training, and coordinate the ongoing clinical evaluation.",
+                },
+            ],
+            [
+                { text: "Conduct research arising from the platform, including " },
+                { isEmphasized: true, text: "Harf-Speech" },
+                {
+                    text: " (Interspeech 2026), and contribute to the broader technical and clinical validation of Digital Harf.",
+                },
+            ],
         ],
         institution: "AI Innovation Hub, Ministry of Defence Health Services",
         institutionUrl: "https://ai.modhs.med.sa/en",
@@ -383,9 +396,16 @@ export const academicExperience: AcademicExperience[] = [
     },
     {
         description: [
-            {
-                text: "Designed and taught labs, assessments, and sessional materials for Data Structures and Algorithms, Database Systems, and Digital Logic Design while mentoring students through direct academic guidance.",
-            },
+            [
+                {
+                    text: "Instructed core undergraduate courses including Data Structures & Algorithms, Database Systems, and Digital Logic Design, designing labs and sessional materials to connect theory with practice.",
+                },
+            ],
+            [
+                {
+                    text: "Designed assessments and provided direct academic guidance and mentorship to students.",
+                },
+            ],
         ],
         institution: "Department of Computer Science and Engineering, Bangladesh University of Engineering and Technology",
         institutionUrl: "https://www.buet.ac.bd/",
