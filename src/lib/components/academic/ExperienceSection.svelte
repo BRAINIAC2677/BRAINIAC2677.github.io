@@ -109,5 +109,9 @@
             grid-template-columns: 1fr;
             gap: 0.85rem;
         }
+
+        .experience-entry::before {
+            display: none;
+        }
     }
 </style>

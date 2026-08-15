@@ -53,9 +53,7 @@ body {
     min-width: 320px;
     margin: 0;
     overflow-x: hidden;
-    background:
-        radial-gradient(circle at 90% 2%, color-mix(in srgb, var(--accent) 7%, transparent), transparent 24rem),
-        var(--canvas);
+    background: var(--canvas);
     color: var(--ink);
     transition:
         background-color 180ms ease,

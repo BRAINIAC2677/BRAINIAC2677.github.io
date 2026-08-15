@@ -127,8 +127,9 @@
         }
     }
 
-    @media (max-width: 440px) {
-        .education-item {
+    @media (max-width: 640px) {
+        .education-item,
+        .honor {
             grid-template-columns: 1fr;
             gap: 0.35rem;
         }
