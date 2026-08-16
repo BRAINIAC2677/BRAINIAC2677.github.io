@@ -1,4 +1,5 @@
 <script lang="ts">
+    import RichText from "$lib/components/academic/RichText.svelte";
     import type { AcademicExperience } from "$lib/interfaces/academic";
     import AcademicLink from "$lib/components/academic/AcademicLink.svelte";
     import SectionHeading from "$lib/components/academic/SectionHeading.svelte";
@@ -28,15 +29,7 @@
                     <ul class="experience-entry__description">
                         {#each item.description as bullet}
                             <li>
-                                {#each bullet as part}
-                                    {#if part.href}
-                                        <AcademicLink href={part.href} tone="accent">{part.text}</AcademicLink>
-                                    {:else if part.isEmphasized}
-                                        <strong>{part.text}</strong>
-                                    {:else}
-                                        {part.text}
-                                    {/if}
-                                {/each}
+                                <RichText parts={bullet} />
                             </li>
                         {/each}
                     </ul>
@@ -129,7 +122,7 @@
         content: "—";
     }
 
-    .experience-entry__description strong {
+    .experience-entry__description :global(strong) {
         color: var(--muted-strong);
         font-weight: 700;
     }

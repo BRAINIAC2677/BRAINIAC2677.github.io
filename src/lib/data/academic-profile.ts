@@ -1,7 +1,7 @@
-import type { AcademicExperience, AcademicProfile, AcademicUpdate, Education, Honor, ResearchAuthor, ResearchWork } from "$lib/interfaces/academic";
+import type { AcademicExperience, AcademicLeadership, AcademicProfile, AcademicUpdate, Education, Honor, ResearchAuthor, ResearchWork } from "$lib/interfaces/academic";
 
 export const academicProfile: AcademicProfile = {
-    affiliation: "AI Innovation Team · Ministry of Defence, Saudi Arabia",
+    affiliation: "AI Innovation Hub · Ministry of Defence Health Services",
     biography: [
         [
             { text: "I am an AI Research Engineer at the " },
@@ -74,6 +74,8 @@ export const academicProfile: AcademicProfile = {
         "Multimodal & Interactive Intelligence",
         "AI for Healthcare & High-Stakes Domains",
     ],
+    researchStatement:
+        "I am interested in building reliable and responsible multimodal intelligent systems that can reason, interact, and operate safely in consequential real-world environments, particularly high-stakes domains such as healthcare.",
     role: "AI Research Engineer",
     scholarUrl: "https://scholar.google.com/citations?user=nDhZSTQAAAAJ",
     status: "Open to Fall 2027 PhD opportunities",
@@ -214,8 +216,15 @@ export const selectedResearch: ResearchWork[] = [
             "Ayah Othman Sindi",
             "Ehsan Hoque",
         ]),
-        description:
-            "A clinically validated, phoneme-level Arabic speech assessment framework that aligns automated pronunciation scores with expert speech-language pathologist ratings.",
+        description: [
+            { text: "Developed a modular, " },
+            { isEmphasized: true, text: "clinically aligned Arabic pronunciation-assessment framework" },
+            { text: " combining speech-to-phoneme modeling with interpretable alignment-based scoring. It achieved an " },
+            { isEmphasized: true, text: "8.92% phoneme error rate" },
+            { text: " and " },
+            { isEmphasized: true, text: "strong agreement with speech-language pathologists (r = 0.791)" },
+            { text: ", enabling scalable assessment for an underserved language." },
+        ],
         links: [{ href: "https://arxiv.org/abs/2604.06191", label: "arXiv" }],
         publicationDate: "September 2026",
         status: "Accepted · Proceedings forthcoming",
@@ -237,9 +246,21 @@ export const selectedResearch: ResearchWork[] = [
             "Ayah Othman Sindi",
             "Ehsan Hoque",
         ]),
-        description:
-            "A culturally grounded, multimodal AI platform that extends clinician-led Arabic speech and language therapy into the home for children with autism.",
-        links: [{ href: "https://arxiv.org/abs/2607.27212", label: "Manuscript" }],
+        description: [
+            { text: "Built a " },
+            { isEmphasized: true, text: "clinically integrated multimodal AI platform" },
+            { text: " for home-based Arabic speech and language assessment and intervention. Its " },
+            { isEmphasized: true, text: "agentic synthetic-data engine" },
+            { text: " generated culturally grounded therapeutic content with " },
+            { isEmphasized: true, text: "90.1% clinician acceptance" },
+            { text: "; the platform is being evaluated in an " },
+            { isEmphasized: true, text: "ongoing randomized clinical trial" },
+            { text: "." },
+        ],
+        links: [
+            { href: "https://arxiv.org/abs/2607.27212", label: "Paper" },
+            { href: "https://digitalharf.modhs.med.sa/", label: "Project" },
+        ],
         publicationDate: "May 2026",
         status: "Preprint",
         title: "Digital Harf: A Clinically Integrated Multimodal AI System for Pervasive Arabic Speech and Language Therapy",
@@ -271,8 +292,15 @@ export const selectedResearch: ResearchWork[] = [
             "E. Ray Dorsey",
             "Ehsan Hoque",
         ]),
-        description:
-            "A cross-setting validation of PARK, a remote multimodal screening tool evaluated on 1,865 participants across supervised clinical and unsupervised home environments.",
+        description: [
+            { text: "Validated " },
+            { isEmphasized: true, text: "PARK, an uncertainty-aware multimodal screening system" },
+            { text: " that fuses facial, motor, and speech tasks across " },
+            { isEmphasized: true, text: "1,865 participants in supervised and at-home settings" },
+            { text: ". It achieved " },
+            { isEmphasized: true, text: "0.85–0.87 AUROC" },
+            { text: " while maintaining performance across diverse cohorts, supporting accessible remote Parkinson’s screening." },
+        ],
         links: [
             {
                 href: "https://www.nature.com/articles/s43856-026-01606-6",
@@ -295,8 +323,13 @@ export const selectedResearch: ResearchWork[] = [
             "Ehsan Hoque",
             "M Saifur Rahman",
         ]),
-        description:
-            "A graph-based positive-unlabeled learning framework for Parkinson’s recognition from webcam-recorded finger-tapping videos.",
+        description: [
+            { text: "Co-developed " },
+            { isEmphasized: true, text: "PULSAR, a positive-unlabeled multi-stream graph-convolutional framework" },
+            { text: " for Parkinson’s screening from webcam finger-tapping videos. By modeling noisy self-reported labels and joint, bone, velocity, and acceleration streams, it achieved " },
+            { isEmphasized: true, text: "71.3% mean accuracy on an independent test set" },
+            { text: " despite limited reliable labels." },
+        ],
         links: [
             {
                 href: "https://dl.acm.org/doi/10.1145/3799417",
@@ -319,8 +352,15 @@ export const selectedResearch: ResearchWork[] = [
             "M Saifur Rahman",
             "Md Rizwan Parvez",
         ]),
-        description:
-            "A systematic conformal uncertainty study of 18 open- and closed-source vision-language models across six multimodal datasets and three scoring functions.",
+        description: [
+            { text: "Established a " },
+            { isEmphasized: true, text: "comprehensive conformal uncertainty benchmark" },
+            { text: " of " },
+            { isEmphasized: true, text: "18 open- and closed-source VLMs across six multimodal datasets and three scoring functions" },
+            { text: ", including likelihood proxies for API-only models. The study shows that stronger models generally quantify uncertainty better, while uncertainty estimation remains " },
+            { isEmphasized: true, text: "particularly challenging on mathematical and reasoning-intensive tasks" },
+            { text: "." },
+        ],
         links: [
             {
                 href: "https://aclanthology.org/2026.findings-eacl.274/",
@@ -346,8 +386,15 @@ export const selectedResearch: ResearchWork[] = [
             "Ehsan Hoque",
             "M. Saifur Rahman",
         ]),
-        description:
-            "An evaluation of Monte Carlo Dropout, Deep Evidential Classification, and Bayesian Neural Networks for reliable Parkinson’s diagnosis across motor, facial, and speech datasets.",
+        description: [
+            { text: "Evaluated " },
+            { isEmphasized: true, text: "Monte Carlo Dropout (MCD), Deep Evidential Classification (DEC), and Bayesian Neural Networks (BNNs)" },
+            { text: " across motor, facial, and speech datasets for Parkinson’s diagnosis. The study found " },
+            { isEmphasized: true, text: "MCD and BNNs more reliable than DEC" },
+            { text: " and showed how uncertainty estimates can " },
+            { isEmphasized: true, text: "flag ambiguous predictions" },
+            { text: " to support safer clinical decision-making." },
+        ],
         links: [
             {
                 href: "https://link.springer.com/chapter/10.1007/978-3-032-00652-3_3",
@@ -369,23 +416,29 @@ export const academicExperience: AcademicExperience[] = [
     {
         description: [
             [
-                { text: "Co-develop " },
+                { isEmphasized: true, text: "Co-develop " },
                 { href: "https://digitalharf.modhs.med.sa/", text: "Digital Harf" },
                 {
-                    text: ", a multimodal AI platform for speech and language assessment and intervention, in close collaboration with clinicians and speech-language therapists across MODHS medical centers.",
+                    text: ", a multimodal AI platform for Arabic speech and language assessment and intervention, with clinical teams across MODHS medical centers.",
                 },
             ],
             [
+                { isEmphasized: true, text: "Co-designed the platform’s randomized clinical trial" },
                 {
-                    text: "Co-designed the platform’s randomized clinical trial, including the study protocol, IRB and SFDA approval processes, and therapist training, and coordinate the ongoing clinical evaluation.",
+                    text: ", including the study protocol, IRB and SFDA approvals, and therapist training; coordinate the ",
                 },
+                { isEmphasized: true, text: "ongoing clinical evaluation" },
+                { text: "." },
             ],
             [
-                { text: "Conduct research arising from the platform, including " },
-                { isEmphasized: true, text: "Harf-Speech" },
+                { isEmphasized: true, text: "Conduct research from Digital Harf" },
+                { text: ", including " },
+                { href: "https://arxiv.org/abs/2604.06191", text: "Harf-Speech" },
                 {
-                    text: " (Interspeech 2026), and contribute to the broader technical and clinical validation of Digital Harf.",
+                    text: " (Interspeech 2026), which develops and evaluates an ",
                 },
+                { isEmphasized: true, text: "Arabic phoneme-level pronunciation assessment method" },
+                { text: " against speech-language pathologists’ ratings." },
             ],
         ],
         institution: "AI Innovation Hub, Ministry of Defence Health Services",
@@ -397,14 +450,16 @@ export const academicExperience: AcademicExperience[] = [
     {
         description: [
             [
+                { isEmphasized: true, text: "Taught Data Structures & Algorithms, Database Systems, and Digital Logic Design" },
                 {
-                    text: "Instructed core undergraduate courses including Data Structures & Algorithms, Database Systems, and Digital Logic Design, designing labs and sessional materials to connect theory with practice.",
+                    text: "; designed labs and sessional materials connecting theory with practice.",
                 },
             ],
             [
-                {
-                    text: "Designed assessments and provided direct academic guidance and mentorship to students.",
-                },
+                { isEmphasized: true, text: "Designed assessments" },
+                { text: " and provided " },
+                { isEmphasized: true, text: "academic guidance and mentorship" },
+                { text: " to students." },
             ],
         ],
         institution: "Department of Computer Science and Engineering, Bangladesh University of Engineering and Technology",
@@ -418,47 +473,69 @@ export const academicExperience: AcademicExperience[] = [
 export const education: Education[] = [
     {
         degree: "B.Sc. in Computer Science and Engineering",
-        details: ["CGPA 3.91 / 4.00", "Three Dean’s List awards"],
-        institution: "Bangladesh University of Engineering and Technology",
-        period: "2020 — 2025",
-    },
-    {
-        degree: "Higher Secondary Certificate (HSC)",
-        details: ["GPA 5.00 / 5.00", "5th in Jessore Board · Talent-pool scholarship"],
-        institution: "Jhenaidah Cadet College",
-        period: "2019",
+        details: ["CGPA 3.91 / 4.00", "Top 10%", "Dean’s List · three consecutive years"],
+        institution: "Bangladesh University of Engineering and Technology (BUET)",
+        period: "Feb 2020 — Mar 2025",
     },
 ];
 
 export const selectedHonors: Honor[] = [
     {
         detail: "Beyond Accuracy · AI in Healthcare Conference",
+        href: "https://link.springer.com/chapter/10.1007/978-3-032-00652-3_3",
         title: "Best Paper Award Nomination",
         year: "2025",
     },
     {
+        detail: "October cycle · ACL Rolling Review",
+        href: "https://aclrollingreview.org/",
+        title: "Reviewer",
+        year: "2025",
+    },
+    {
+        detail: "AI in Medicine · 52nd Annual National Conference of the Ophthalmological Society of Bangladesh",
+        href: "https://osb.org.bd/",
+        title: "Invited Talk",
+        year: "2025",
+    },
+    {
         detail: "Sole Fall 2023 recipient from Bangladesh",
+        href: "https://www.computer.org/volunteering/awards/scholarships/merwin",
         title: "Richard E. Merwin Student Scholarship",
         year: "2023",
     },
     {
         detail: "Bangladesh University of Engineering and Technology",
+        href: "https://www.buet.ac.bd/",
         title: "Dean’s List Student Award · three consecutive years",
         year: "2022–24",
     },
+];
+
+export const academicLeadership: AcademicLeadership[] = [
     {
-        detail: "Document layout analysis competition",
-        title: "Champion, Deep Learning Sprint 2.0",
-        year: "2023",
+        description: [
+            { isEmphasized: true, text: "Led end-to-end coordination" },
+            { text: " for the multi-month department festival, securing " },
+            { isEmphasized: true, text: "sponsorships" },
+            { text: " and aligning faculty and student teams to deliver inter-university technical competitions and cultural programs." },
+        ],
+        organization: "BUET CSE Festival 2024",
+        organizationUrl: "https://cse.buet.ac.bd/home/news_detail/200",
+        period: "2024",
+        title: "Lead Student Coordinator",
     },
     {
-        detail: "Bengali text-to-IPA challenge",
-        title: "Champion, DataVerse Challenge",
-        year: "2023",
-    },
-    {
-        detail: "1st in Bangladesh",
-        title: "IEEE Xtreme 16.0",
-        year: "2022",
+        description: [
+            { isEmphasized: true, text: "Captained both teams" },
+            { text: "; led the hall team to the " },
+            { isEmphasized: true, text: "2024 Inter-Hall basketball championship" },
+            { text: " as the " },
+            { isEmphasized: true, text: "tournament’s top scorer" },
+            { text: "." },
+        ],
+        organization: "BUET University and Hall Teams",
+        period: "2024",
+        title: "Basketball Team Captain",
     },
 ];

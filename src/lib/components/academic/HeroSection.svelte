@@ -28,12 +28,16 @@
             {/each}
         </div>
 
-        <div class="profile__research-interests" aria-label="Research interests">
-            {#each profile.researchInterests as interest, index}
-                {#if index > 0}<span aria-hidden="true">·</span>{/if}
-                <strong>{interest}</strong>
-            {/each}
-        </div>
+        <section class="profile__research" aria-labelledby="research-interest-heading">
+            <h2 id="research-interest-heading">Research Interest</h2>
+            <p>{profile.researchStatement}</p>
+            <div class="profile__research-interests" aria-label="Research interest areas">
+                {#each profile.researchInterests as interest, index}
+                    {#if index > 0}<span aria-hidden="true">·</span>{/if}
+                    <strong>{interest}</strong>
+                {/each}
+            </div>
+        </section>
 
         <nav class="profile__links" aria-label="Primary profile links">
             <a href={`mailto:${profile.email}`}>Email</a>
@@ -108,17 +112,40 @@
         line-height: 1.7;
     }
 
+    .profile__research {
+        margin-top: 1rem;
+        padding: 0.9rem 1rem 0.85rem;
+        border-left: 2px solid var(--accent);
+        background: color-mix(in srgb, var(--surface) 82%, transparent);
+    }
+
+    .profile__research h2 {
+        color: var(--accent);
+        font-size: 0.66rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+    }
+
+    .profile__research > p {
+        max-width: 49rem;
+        margin-top: 0.45rem;
+        color: var(--muted-strong);
+        font-size: 0.8rem;
+        font-weight: 600;
+        line-height: 1.58;
+    }
+
     .profile__research-interests {
         display: flex;
         gap: 0.4rem 0.75rem;
         flex-wrap: wrap;
-        margin-top: 1rem;
-        padding: 0.72rem 0;
+        margin-top: 0.65rem;
+        padding-top: 0.62rem;
         border-top: 1px solid var(--border);
-        border-bottom: 1px solid var(--border);
         align-items: center;
         color: var(--muted-strong);
-        font-size: 0.64rem;
+        font-size: 0.67rem;
         letter-spacing: 0.025em;
         line-height: 1.5;
     }

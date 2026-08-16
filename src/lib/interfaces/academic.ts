@@ -11,6 +11,7 @@ export interface AcademicProfile {
     links: ProfileLink[];
     name: string;
     researchInterests: string[];
+    researchStatement: string;
     role: string;
     scholarUrl: string;
     status: string;
@@ -40,7 +41,7 @@ export interface ResearchVenue {
 
 export interface ResearchWork {
     authors: ResearchAuthor[];
-    description: string;
+    description: RichTextPart[];
     links: ResearchLink[];
     publicationDate: string;
     status: string;
@@ -63,6 +64,14 @@ export interface AcademicExperience {
     role: string;
 }
 
+export interface AcademicLeadership {
+    description: RichTextPart[];
+    organization: string;
+    organizationUrl?: string;
+    period: string;
+    title: string;
+}
+
 export interface Education {
     degree: string;
     details: string[];
@@ -72,6 +81,7 @@ export interface Education {
 
 export interface Honor {
     detail: string;
+    href?: string;
     title: string;
     year: string;
 }

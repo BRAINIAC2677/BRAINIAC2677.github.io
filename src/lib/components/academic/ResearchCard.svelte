@@ -1,5 +1,6 @@
 <script lang="ts">
     import type { ResearchWork } from "$lib/interfaces/academic";
+    import RichText from "$lib/components/academic/RichText.svelte";
     import AcademicLink from "$lib/components/academic/AcademicLink.svelte";
     import PublicationAuthor from "$lib/components/academic/PublicationAuthor.svelte";
 
@@ -26,7 +27,7 @@
                 {#if index > 0}, {/if}<PublicationAuthor {author} />
             {/each}
         </p>
-        <p class="publication__description">{work.description}</p>
+        <p class="publication__description"><RichText parts={work.description} /></p>
     </div>
 
     <div class="publication__links">
@@ -41,7 +42,7 @@
         display: grid;
         grid-template-columns: 3rem minmax(0, 1fr) 5rem;
         gap: clamp(1rem, 3vw, 2rem);
-        padding: 1.5rem 0;
+        padding: 1.75rem 0;
         border-bottom: 1px solid var(--border);
         align-items: start;
     }
@@ -74,7 +75,7 @@
 
     h3 {
         max-width: 48rem;
-        margin-top: 0.55rem;
+        margin-top: 0.7rem;
         font-family: var(--font-display);
         font-size: clamp(1.35rem, 2.5vw, 1.75rem);
         font-weight: 600;
@@ -83,7 +84,7 @@
     }
 
     .publication__authors {
-        margin-top: 0.55rem;
+        margin-top: 0.7rem;
         color: var(--muted-strong);
         font-size: 0.74rem;
         font-weight: 500;
@@ -92,10 +93,15 @@
 
     .publication__description {
         max-width: 48rem;
-        margin-top: 0.65rem;
-        color: var(--muted);
+        margin-top: 0.85rem;
+        color: var(--ink);
         font-size: 0.78rem;
         line-height: 1.65;
+    }
+
+    .publication__description :global(strong) {
+        color: inherit;
+        font-weight: 700;
     }
 
     .publication__links {

@@ -13,6 +13,7 @@
         { href: "#publications", label: "Publications" },
         { href: "#experience", label: "Experience" },
         { href: "#education", label: "Education" },
+        { href: "#leadership", label: "Leadership" },
         { href: "#contact", label: "Contact" },
     ];
 

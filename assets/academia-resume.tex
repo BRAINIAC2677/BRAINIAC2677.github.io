@@ -1,0 +1,267 @@
+\documentclass[10pt,letterpaper]{article}
+
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage{needspace}
+\usepackage{iftex}
+\usepackage[
+    top=0.78cm,
+    bottom=0.78cm,
+    left=1.55cm,
+    right=1.55cm,
+    footskip=0cm
+]{geometry}
+\usepackage[
+    pdftitle={Asif Azad - Academic Curriculum Vitae},
+    pdfauthor={Asif Azad},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref}
+\ifPDFTeX
+    \usepackage{charter}
+\else
+    \usepackage{XCharter}
+\fi
+
+\definecolor{primaryColor}{RGB}{0,79,144}
+\definecolor{textColor}{RGB}{28,32,36}
+\definecolor{mutedColor}{RGB}{75,82,89}
+
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+\fi
+
+\pagestyle{empty}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\tabcolsep}{0pt}
+\setlength{\columnsep}{0.35cm}
+\renewcommand\labelitemi{\textcolor{primaryColor}{\small\textbullet}}
+\urlstyle{same}
+
+\titleformat{\section}
+    {\needspace{3\baselineskip}\color{primaryColor}\large\bfseries}
+    {}
+    {0pt}
+    {}
+    [\vspace{0.2ex}\color{primaryColor!55}\titlerule]
+\titlespacing{\section}{0pt}{1.00em}{0.52em}
+
+\newenvironment{highlights}
+    {\begin{itemize}[
+        topsep=0.18em,
+        parsep=0pt,
+        partopsep=0pt,
+        itemsep=0.42em,
+        leftmargin=1.15em
+    ]}
+    {\end{itemize}}
+
+\newenvironment{entry}
+    {\begin{minipage}{\linewidth}\color{textColor}}
+    {\end{minipage}}
+
+\newcommand{\daterow}[3]{%
+    \begin{tabularx}{\linewidth}{@{}X>{\raggedleft\arraybackslash}p{3.8cm}@{}}
+        #1 & \textcolor{mutedColor}{#2}\\
+        #3 &
+    \end{tabularx}
+}
+
+\newcommand{\selectedpublication}[6]{%
+    \begin{entry}
+        \begin{tabularx}{\linewidth}{@{}p{1.45em}>{\raggedright\arraybackslash}X>{\raggedleft\arraybackslash}p{1.9cm}@{}}
+            {\setlength{\fboxsep}{1.4pt}\colorbox{primaryColor}{\textcolor{white}{\bfseries\scriptsize #1}}}
+            & \textbf{#2}
+            & \textcolor{mutedColor}{#3}
+        \end{tabularx}\\[0.20em]
+        #4\\[0.18em]
+        #5\\[0.30em]
+        \begin{tabularx}{\linewidth}{@{\hspace{1.45em}}!{\color{mutedColor}\vrule width 0.6pt}@{\hspace{0.62em}}>{\raggedright\arraybackslash}X@{}}
+            \textcolor{textColor}{#6}
+        \end{tabularx}
+    \end{entry}
+    \vspace{0.78em}
+}
+
+\newcommand{\honorrow}[2]{%
+    \begin{tabularx}{\linewidth}{@{}p{1.5cm}>{\raggedright\arraybackslash}X@{}}
+        \textcolor{mutedColor}{#1} & #2
+    \end{tabularx}
+    \vspace{0.12em}
+}
+
+\newcommand{\leadershiprow}[4]{%
+    \begin{tabularx}{\linewidth}{@{}X>{\raggedleft\arraybackslash}p{1.9cm}@{}}
+        \textbf{#1}, #2 & \textcolor{mutedColor}{#3}
+    \end{tabularx}\\[0.10em]
+    \begin{tabularx}{\linewidth}{@{\hspace{0.35em}}!{\color{mutedColor}\vrule width 0.6pt}@{\hspace{0.65em}}>{\raggedright\arraybackslash}X@{}}
+        #4
+    \end{tabularx}
+    \vspace{0.42em}
+}
+
+\begin{document}
+
+\begin{center}
+    {\fontsize{22pt}{25pt}\selectfont\bfseries\color{primaryColor} Asif Azad}\\[0.32em]
+    \href{https://asifazad.online/}{asifazad.online}
+    \enspace\textcolor{mutedColor}{\textbar}\enspace
+    \href{mailto:asifazad0178@gmail.com}{asifazad0178@gmail.com}
+    \enspace\textcolor{mutedColor}{\textbar}\enspace
+    \href{https://scholar.google.com/citations?user=nDhZSTQAAAAJ}{Google Scholar}
+    \enspace\textcolor{mutedColor}{\textbar}\enspace
+    \href{https://www.linkedin.com/in/asifazad2677}{LinkedIn}
+    \enspace\textcolor{mutedColor}{\textbar}\enspace
+    \href{https://github.com/BRAINIAC2677}{GitHub}
+\end{center}
+\vspace{-0.35em}
+
+\section{Research Interest}
+\begin{entry}
+I am interested in building reliable and responsible multimodal intelligent systems that can reason, interact, and operate safely in consequential real-world environments, particularly high-stakes domains such as healthcare.\\[0.38em]
+\textbf{Reliable \& Trustworthy AI}
+\enspace\textcolor{primaryColor}{\textbullet}\enspace
+\textbf{Multimodal \& Interactive Intelligence}
+\enspace\textcolor{primaryColor}{\textbullet}\enspace
+\textbf{AI for Healthcare \& High-Stakes Domains}
+\end{entry}
+
+\section{Education}
+\begin{entry}
+\daterow
+    {\textbf{Bangladesh University of Engineering and Technology (BUET)}}
+    {Feb 2020 -- Mar 2025}
+    {B.Sc. in Computer Science and Engineering}
+\vspace{0.16em}
+\textbf{CGPA:} 3.91/4.00
+\enspace\textcolor{mutedColor}{\textbar}\enspace
+\textbf{Top 10\%}
+\enspace\textcolor{mutedColor}{\textbar}\enspace
+\textbf{Dean's List:} three consecutive years\\[0.28em]
+\textbf{Undergraduate thesis:}
+\href{https://link.springer.com/chapter/10.1007/978-3-032-00652-3_3}{\textit{Beyond Accuracy: Enhancing Parkinson's Diagnosis with Uncertainty Quantification of Machine Learning Models}}\\[0.28em]
+\textbf{Supervisor:} \href{https://cse.buet.ac.bd/faculty/faculty_detail/mrahman}{Prof. M Saifur Rahman}
+\enspace\textcolor{mutedColor}{\textbar}\enspace
+\textbf{Best Paper Award nominee}, AI in Healthcare Conference (AIiH) 2025
+\end{entry}
+
+\section{Experience}
+\begin{entry}
+\daterow
+    {\textbf{AI Research Engineer}, \href{https://ai.modhs.med.sa/en}{AI Innovation Hub, Ministry of Defence Health Services}}
+    {Apr 2025 -- Present}
+    {Saudi Arabia}
+\vspace{-0.18em}
+\begin{highlights}
+    \item \textbf{Co-develop} \href{https://digitalharf.modhs.med.sa/}{\textbf{Digital Harf}}, a multimodal AI platform for Arabic speech and language assessment and intervention, with clinical teams across MODHS medical centers.
+    \item \textbf{Co-designed the platform's randomized clinical trial}, including the study protocol, IRB and SFDA approvals, and therapist training; coordinate the \textbf{ongoing clinical evaluation}.
+    \item \textbf{Conduct research from Digital Harf}, including \href{https://arxiv.org/abs/2604.06191}{\textbf{Harf-Speech}} (Interspeech 2026), which develops and evaluates an \textbf{Arabic phoneme-level pronunciation assessment method} against speech-language pathologists' ratings.
+\end{highlights}
+\end{entry}
+\vspace{0.85em}
+
+\begin{entry}
+\daterow
+    {\textbf{Adjunct Lecturer}, \href{https://cse.buet.ac.bd/}{Bangladesh University of Engineering and Technology}}
+    {Nov 2025 -- May 2026}
+    {Dhaka, Bangladesh}
+\vspace{-0.18em}
+\begin{highlights}
+    \item \textbf{Taught Data Structures \& Algorithms, Database Systems, and Digital Logic Design}; designed labs and sessional materials connecting theory with practice.
+    \item \textbf{Designed assessments} and provided \textbf{academic guidance and mentorship} to students.
+\end{highlights}
+\end{entry}
+
+\section{Selected Publications}
+
+\selectedpublication
+    {1}
+    {Harf-Speech: A Clinically Aligned Framework for Arabic Phoneme-Level Speech Assessment}
+    {Sep 2026}
+    {\textit{\textbf{\underline{Asif Azad}}, MD Sadik Hossain Shanto, Mohammad Sadat Hossain, Bdour Alwuqaysi, Sabri Boughorbel, Yahya Bokhari, Abdulrhman Aljouie, Ayah Othman Sindi, Ehsan Hoque}}
+    {\href{https://www.isca-speech.org/event-5462701}{\textbf{Interspeech 2026}} (accepted; proceedings forthcoming) \enspace\textbar\enspace \href{https://arxiv.org/abs/2604.06191}{\underline{Paper Link}}}
+    {Developed a modular, \textbf{clinically aligned Arabic pronunciation-assessment framework} combining speech-to-phoneme modeling with interpretable alignment-based scoring. It achieved an \textbf{8.92\% phoneme error rate} and \textbf{strong agreement with speech-language pathologists (\(r=0.791\))}, enabling scalable assessment for an underserved language.}
+
+\selectedpublication
+    {2}
+    {Digital Harf: A Clinically Integrated Multimodal AI System for Pervasive Arabic Speech and Language Therapy}
+    {May 2026}
+    {\textit{\textbf{\underline{Asif Azad}}, Mohammad Sadat Hossain, MD Sadik Hossain Shanto, Sabri Boughorbel, Abdulrhman Aljouie, Bdour Alwuqaysi, Yahya Bokhari, Ayah Othman Sindi, Ehsan Hoque}}
+    {\textbf{Preprint} \enspace\textbar\enspace \href{https://arxiv.org/abs/2607.27212}{\underline{Paper Link}} \enspace\textbar\enspace \href{https://digitalharf.modhs.med.sa/}{\underline{Project Link}}}
+    {Built a \textbf{clinically integrated multimodal AI platform} for home-based Arabic speech and language assessment and intervention. Its \textbf{agentic synthetic-data engine} generated culturally grounded therapeutic content with \textbf{90.1\% clinician acceptance}; the platform is being evaluated in an \textbf{ongoing randomized clinical trial}.}
+
+\selectedpublication
+    {3}
+    {Validation of Remote Multimodal AI Screening for Parkinson Disease Across Diverse Settings}
+    {May 2026}
+    {\textit{Md Saiful Islam, Tariq Adnan, Abdelrahman Abdelkader, Zipei Liu, Evelyn Ma, Sooyong Park, \textbf{\underline{Asif Azad}}, Pai Liu, Meghan Pawlik, Emily Hartman, Erin Shelton, Kristina B. Larson, M. Saifur Rahman, Cathe Schwartz, Karen Jaffe, Jamie L. Adams, Ruth B. Schneider, Jan Freyberg, E. Ray Dorsey, Ehsan Hoque}}
+    {\href{https://www.nature.com/articles/s43856-026-01606-6}{\textbf{Communications Medicine}} (published; open access) \enspace\textbar\enspace \href{https://www.nature.com/articles/s43856-026-01606-6}{\underline{Paper Link}}}
+    {Validated \textbf{PARK, an uncertainty-aware multimodal screening system} that fuses facial, motor, and speech tasks across \textbf{1,865 participants in supervised and at-home settings}. It achieved \textbf{0.85--0.87 AUROC} while maintaining performance across diverse cohorts, supporting accessible remote Parkinson's screening.}
+
+\selectedpublication
+    {4}
+    {PULSAR: Graph-Based Positive Unlabeled Learning with Multi-Stream Adaptive Convolutions for Parkinson's Disease Recognition}
+    {Apr 2026}
+    {\textit{Md Zarif Ul Alam, \textbf{\underline{Asif Azad}}, Md Saiful Islam, Ehsan Hoque, M Saifur Rahman}}
+    {\href{https://dl.acm.org/doi/10.1145/3799417}{\textbf{ACM Transactions on Computing for Healthcare}} (published) \enspace\textbar\enspace \href{https://dl.acm.org/doi/10.1145/3799417}{\underline{Paper Link}}}
+    {Co-developed \textbf{PULSAR, a positive-unlabeled multi-stream graph-convolutional framework} for Parkinson's screening from webcam finger-tapping videos. By modeling noisy self-reported labels and joint, bone, velocity, and acceleration streams, it achieved \textbf{71.3\% mean accuracy on an independent test set} despite limited reliable labels.}
+
+\selectedpublication
+    {5}
+    {The Art of Saying ‘Maybe’: A Conformal Lens for Uncertainty Benchmarking in VLMs}
+    {Mar 2026}
+    {\textit{\textbf{\underline{Asif Azad}}, Mohammad Sadat Hossain, MD Sadik Hossain Shanto, M Saifur Rahman, Md Rizwan Parvez}}
+    {\href{https://aclanthology.org/2026.findings-eacl.274/}{\textbf{Findings of EACL 2026}} (published; peer reviewed) \enspace\textbar\enspace \href{https://aclanthology.org/2026.findings-eacl.274/}{\underline{Paper Link}}}
+    {Established a \textbf{comprehensive conformal uncertainty benchmark} of \textbf{18 open- and closed-source VLMs across six multimodal datasets and three scoring functions}, including likelihood proxies for API-only models. The study shows that stronger models generally quantify uncertainty better, while uncertainty estimation remains \textbf{particularly challenging on mathematical and reasoning-intensive tasks}.}
+
+\selectedpublication
+    {6}
+    {Beyond Accuracy: Enhancing Parkinson's Diagnosis with Uncertainty Quantification of Machine Learning Models}
+    {Aug 2025}
+    {\textit{\textbf{\underline{Asif Azad}}, Md. Saiful Islam, Ehsan Hoque, M. Saifur Rahman}}
+    {\href{https://link.springer.com/chapter/10.1007/978-3-032-00652-3_3}{\textbf{AIiH 2025, Springer LNCS}} (published; Best Paper Award nominee) \enspace\textbar\enspace \href{https://link.springer.com/chapter/10.1007/978-3-032-00652-3_3}{\underline{Paper Link}} \enspace\textbar\enspace \href{https://github.com/BRAINIAC2677/UQ4PD-ML}{\underline{Code}}}
+    {Evaluated \textbf{Monte Carlo Dropout (MCD), Deep Evidential Classification (DEC), and Bayesian Neural Networks (BNNs)} across motor, facial, and speech datasets for Parkinson's diagnosis. The study found \textbf{MCD and BNNs more reliable than DEC} and showed how uncertainty estimates can \textbf{flag ambiguous predictions} to support safer clinical decision-making.}
+
+\section{Honors \& Service}
+\begin{entry}
+\honorrow{2025}{\textbf{Best Paper Award Nomination}, \textit{Beyond Accuracy}, AI in Healthcare Conference (AIiH)}
+\honorrow{2025}{\textbf{Reviewer}, October cycle, \href{https://aclrollingreview.org/}{ACL Rolling Review (ARR)}}
+\honorrow{2025}{\textbf{Invited Talk}, \textit{AI in Medicine: Transforming Healthcare Today \& Tomorrow}, 52nd Annual National Conference, Ophthalmological Society of Bangladesh}
+\honorrow{2023}{\textbf{IEEE Richard E. Merwin Student Scholarship}; sole Fall 2023 recipient from Bangladesh}
+\honorrow{2022--24}{\textbf{Dean's List Student Award}, BUET; three consecutive years}
+\end{entry}
+
+\section{Leadership}
+\begin{entry}
+\leadershiprow
+    {Lead Student Coordinator}
+    {\href{https://cse.buet.ac.bd/home/news_detail/200}{BUET CSE Festival 2024}}
+    {2024}
+    {\textbf{Led end-to-end coordination} for the multi-month department festival, securing \textbf{sponsorships} and aligning faculty and student teams to deliver inter-university technical competitions and cultural programs.}
+\leadershiprow
+    {Basketball Team Captain}
+    {University and Hall Teams}
+    {2024}
+    {\textbf{Captained both teams}; led the hall team to the \textbf{2024 Inter-Hall championship} as the \textbf{tournament's top scorer}.}
+\end{entry}
+\vspace{-0.70em}
+
+\section{References}
+\begin{entry}
+\begin{tabularx}{\linewidth}{@{}X@{\hspace{0.75cm}}X@{}}
+    \textbf{\href{https://cse.buet.ac.bd/faculty/faculty_detail/mrahman}{Prof. M Saifur Rahman}} &
+    \textbf{\href{https://www.cs.rochester.edu/u/mehoque/}{Prof. Ehsan Hoque}}\\
+    Professor, Department of CSE & Professor of Computer Science\\
+    Bangladesh University of Engineering and Technology & University of Rochester\\
+    \href{mailto:mrahman@cse.buet.ac.bd}{mrahman@cse.buet.ac.bd} &
+    \href{mailto:mehoque@cs.rochester.edu}{mehoque@cs.rochester.edu}
+\end{tabularx}
+\end{entry}
+
+\end{document}

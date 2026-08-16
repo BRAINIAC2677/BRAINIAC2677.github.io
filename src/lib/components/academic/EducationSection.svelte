@@ -1,5 +1,6 @@
 <script lang="ts">
     import type { Education, Honor } from "$lib/interfaces/academic";
+    import AcademicLink from "$lib/components/academic/AcademicLink.svelte";
     import SectionHeading from "$lib/components/academic/SectionHeading.svelte";
 
     export let education: Education[];
@@ -10,7 +11,7 @@
     <SectionHeading
         eyebrow="Background"
         title="Education & honors"
-        description="Academic training and selected distinctions in research, scholarship, and technical leadership."
+        description="Academic preparation, research distinctions, and scholarly service."
     />
 
     <div class="academic-record">
@@ -31,13 +32,19 @@
         </div>
 
         <div>
-            <h3 class="record-label">Selected honors</h3>
+            <h3 class="record-label">Honors & service</h3>
             <div class="honors-list">
                 {#each honors as honor}
                     <article class="honor">
                         <span>{honor.year}</span>
                         <div>
-                            <h4>{honor.title}</h4>
+                            <h4>
+                                {#if honor.href}
+                                    <AcademicLink href={honor.href}>{honor.title}</AcademicLink>
+                                {:else}
+                                    {honor.title}
+                                {/if}
+                            </h4>
                             <p>{honor.detail}</p>
                         </div>
                     </article>
