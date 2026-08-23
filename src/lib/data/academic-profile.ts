@@ -30,7 +30,7 @@ export const academicProfile: AcademicProfile = {
         ],
         [
             {
-                text: "More broadly, I am interested in building reliable and responsible multimodal intelligent systems that can reason, interact, and operate safely in consequential real-world environments, particularly high-stakes domains such as healthcare. I earned my BSc in Computer Science & Engineering from ",
+                text: "More broadly, I am interested in building reliable and responsible multimodal intelligent systems that can reason, interact, collaborate with people, and operate safely in consequential real-world environments, particularly high-stakes domains such as healthcare. I earned my BSc in Computer Science & Engineering from ",
             },
             { href: "https://www.buet.ac.bd/", text: "BUET" },
             {
@@ -70,12 +70,12 @@ export const academicProfile: AcademicProfile = {
     ],
     name: "Asif Azad",
     researchInterests: [
-        "Reliable & Trustworthy AI",
-        "Multimodal & Interactive Intelligence",
+        "Trustworthy Multimodal & Agentic AI",
+        "Human-Centered AI",
         "AI for Healthcare & High-Stakes Domains",
     ],
     researchStatement:
-        "I am interested in building reliable and responsible multimodal intelligent systems that can reason, interact, and operate safely in consequential real-world environments, particularly high-stakes domains such as healthcare.",
+        "I am interested in building reliable and responsible multimodal intelligent systems that can reason, interact, collaborate with people, and operate safely in consequential real-world environments, particularly high-stakes domains such as healthcare.",
     role: "AI Research Engineer",
     scholarUrl: "https://scholar.google.com/citations?user=nDhZSTQAAAAJ",
     status: "Open to Fall 2027 PhD opportunities",
