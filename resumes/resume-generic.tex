@@ -50,7 +50,7 @@
     {0pt}
     {}
     [\vspace{0.2ex}\color{primaryColor!55}\titlerule]
-\titlespacing{\section}{0pt}{1.00em}{0.52em}
+\titlespacing{\section}{0pt}{1.05em}{0.62em}
 
 \newenvironment{highlights}
     {\begin{itemize}[
@@ -79,31 +79,33 @@
             {\setlength{\fboxsep}{1.4pt}\colorbox{primaryColor}{\textcolor{white}{\bfseries\scriptsize #1}}}
             & \textbf{#2}
             & \textcolor{mutedColor}{#3}
-        \end{tabularx}\\[0.20em]
-        #4\\[0.18em]
-        #5\\[0.30em]
+        \end{tabularx}\\[0.32em]
+        #4\\[0.28em]
+        #5\\[0.44em]
         \begin{tabularx}{\linewidth}{@{\hspace{1.45em}}!{\color{mutedColor}\vrule width 0.6pt}@{\hspace{0.62em}}>{\raggedright\arraybackslash}X@{}}
             \textcolor{textColor}{#6}
         \end{tabularx}
-    \end{entry}
-    \vspace{0.78em}
+    \end{entry}%
+    \par\vspace{0.92em}
 }
+
+\newcommand{\trimfinalpublicationspacing}{\vspace{-0.92em}}
 
 \newcommand{\honorrow}[2]{%
     \begin{tabularx}{\linewidth}{@{}p{1.5cm}>{\raggedright\arraybackslash}X@{}}
         \textcolor{mutedColor}{#1} & #2
     \end{tabularx}
-    \vspace{0.12em}
+    \vspace{0.24em}
 }
 
-\newcommand{\leadershiprow}[4]{%
-    \begin{tabularx}{\linewidth}{@{}X>{\raggedleft\arraybackslash}p{1.9cm}@{}}
-        \textbf{#1}, #2 & \textcolor{mutedColor}{#3}
-    \end{tabularx}\\[0.10em]
-    \begin{tabularx}{\linewidth}{@{\hspace{0.35em}}!{\color{mutedColor}\vrule width 0.6pt}@{\hspace{0.65em}}>{\raggedright\arraybackslash}X@{}}
-        #4
+\newcommand{\publicationsummary}{%
+    \begin{tabularx}{\linewidth}{@{}*{5}{>{\centering\arraybackslash}X}@{}}
+        \textbf{4} first-author papers &
+        \textbf{1} co-first-author paper &
+        \textbf{2} Q1 journal papers &
+        \textbf{2} ICORE A venues &
+        \textbf{1} best-paper nomination
     \end{tabularx}
-    \vspace{0.42em}
 }
 
 \begin{document}
@@ -132,6 +134,7 @@ I am interested in building reliable and responsible multimodal intelligent syst
 \textbf{AI for Healthcare \& High-Stakes Domains}
 \end{entry}
 
+\newcommand{\educationsection}{%
 \section{Education}
 \begin{entry}
 \daterow
@@ -150,7 +153,9 @@ I am interested in building reliable and responsible multimodal intelligent syst
 \enspace\textcolor{mutedColor}{\textbar}\enspace
 \textbf{Best Paper Award nominee}, AI in Healthcare Conference (AIiH) 2025
 \end{entry}
+}
 
+\newcommand{\experiencesection}{%
 \section{Experience}
 \begin{entry}
 \daterow
@@ -164,7 +169,7 @@ I am interested in building reliable and responsible multimodal intelligent syst
     \item \textbf{Conduct research from Digital Harf}, including \href{https://arxiv.org/abs/2604.06191}{\textbf{Harf-Speech}} (Interspeech 2026), which develops and evaluates an \textbf{Arabic phoneme-level pronunciation assessment method} against speech-language pathologists' ratings.
 \end{highlights}
 \end{entry}
-\vspace{0.85em}
+\vspace{0.55em}
 
 \begin{entry}
 \daterow
@@ -177,89 +182,139 @@ I am interested in building reliable and responsible multimodal intelligent syst
     \item \textbf{Designed assessments} and provided \textbf{academic guidance and mentorship} to students.
 \end{highlights}
 \end{entry}
+}
 
 \section{Selected Publications}
+\begin{entry}
+\small\publicationsummary
+\end{entry}
+\vspace{0.62em}
 
+\newcommand{\harfspeechpublication}[1]{%
 \selectedpublication
-    {1}
+    {#1}
     {Harf-Speech: A Clinically Aligned Framework for Arabic Phoneme-Level Speech Assessment}
     {Sep 2026}
     {\textit{\textbf{\underline{Asif Azad}}, MD Sadik Hossain Shanto, Mohammad Sadat Hossain, Bdour Alwuqaysi, Sabri Boughorbel, Yahya Bokhari, Abdulrhman Aljouie, Ayah Othman Sindi, Ehsan Hoque}}
-    {\href{https://www.isca-speech.org/event-5462701}{\textbf{Interspeech 2026}} (accepted; proceedings forthcoming) \enspace\textbar\enspace \href{https://arxiv.org/abs/2604.06191}{\underline{Paper Link}}}
+    {\textbf{Interspeech 2026} \enspace\textbar\enspace \textbf{ICORE A} \enspace\textbar\enspace Accepted; proceedings forthcoming \enspace\textbar\enspace \href{https://arxiv.org/abs/2604.06191}{\underline{Paper Link}}}
     {Developed a modular, \textbf{clinically aligned Arabic pronunciation-assessment framework} combining speech-to-phoneme modeling with interpretable alignment-based scoring. It achieved an \textbf{8.92\% phoneme error rate} and \textbf{strong agreement with speech-language pathologists (\(r=0.791\))}, enabling scalable assessment for an underserved language.}
+}
 
+\newcommand{\digitalharfpublication}[1]{%
 \selectedpublication
-    {2}
+    {#1}
     {Digital Harf: A Clinically Integrated Multimodal AI System for Pervasive Arabic Speech and Language Therapy}
     {May 2026}
     {\textit{\textbf{\underline{Asif Azad}}, Mohammad Sadat Hossain, MD Sadik Hossain Shanto, Sabri Boughorbel, Abdulrhman Aljouie, Bdour Alwuqaysi, Yahya Bokhari, Ayah Othman Sindi, Ehsan Hoque}}
-    {\textbf{Preprint} \enspace\textbar\enspace \href{https://arxiv.org/abs/2607.27212}{\underline{Paper Link}} \enspace\textbar\enspace \href{https://digitalharf.modhs.med.sa/}{\underline{Project Link}}}
+    {\textbf{Targeting CHI 2027} \enspace\textbar\enspace \href{https://arxiv.org/abs/2607.27212}{\underline{Paper Link}} \enspace\textbar\enspace \href{https://digitalharf.modhs.med.sa/}{\underline{Project Link}}}
     {Built a \textbf{clinically integrated multimodal AI platform} for home-based Arabic speech and language assessment and intervention. Its \textbf{agentic synthetic-data engine} generated culturally grounded therapeutic content with \textbf{90.1\% clinician acceptance}; the platform is being evaluated in an \textbf{ongoing randomized clinical trial}.}
+}
 
+\newcommand{\parkpublication}[1]{%
 \selectedpublication
-    {3}
+    {#1}
     {Validation of Remote Multimodal AI Screening for Parkinson Disease Across Diverse Settings}
     {May 2026}
     {\textit{Md Saiful Islam, Tariq Adnan, Abdelrahman Abdelkader, Zipei Liu, Evelyn Ma, Sooyong Park, \textbf{\underline{Asif Azad}}, Pai Liu, Meghan Pawlik, Emily Hartman, Erin Shelton, Kristina B. Larson, M. Saifur Rahman, Cathe Schwartz, Karen Jaffe, Jamie L. Adams, Ruth B. Schneider, Jan Freyberg, E. Ray Dorsey, Ehsan Hoque}}
-    {\href{https://www.nature.com/articles/s43856-026-01606-6}{\textbf{Communications Medicine}} (published; open access) \enspace\textbar\enspace \href{https://www.nature.com/articles/s43856-026-01606-6}{\underline{Paper Link}}}
-    {Validated \textbf{PARK, an uncertainty-aware multimodal screening system} that fuses facial, motor, and speech tasks across \textbf{1,865 participants in supervised and at-home settings}. It achieved \textbf{0.85--0.87 AUROC} while maintaining performance across diverse cohorts, supporting accessible remote Parkinson's screening.}
+    {\textbf{Communications Medicine} \enspace\textbar\enspace \textbf{Q1; Impact Factor 7.4} \enspace\textbar\enspace Published \enspace\textbar\enspace \href{https://www.nature.com/articles/s43856-026-01606-6}{\underline{Paper Link}}}
+    {Validated \textbf{PARK, an uncertainty-aware multimodal screening system} across \textbf{1,865 participants in supervised and at-home settings}, achieving \textbf{0.85--0.87 AUROC}. \underline{\textit{Contribution}}: Collaborated with the first author to \textbf{design and implement the paper's visualizations} and contributed to \textbf{UFNet's uncertainty-quantification analysis}.}
+}
 
+\newcommand{\pulsarpublication}[1]{%
 \selectedpublication
-    {4}
+    {#1}
     {PULSAR: Graph-Based Positive Unlabeled Learning with Multi-Stream Adaptive Convolutions for Parkinson's Disease Recognition}
     {Apr 2026}
-    {\textit{Md Zarif Ul Alam, \textbf{\underline{Asif Azad}}, Md Saiful Islam, Ehsan Hoque, M Saifur Rahman}}
-    {\href{https://dl.acm.org/doi/10.1145/3799417}{\textbf{ACM Transactions on Computing for Healthcare}} (published) \enspace\textbar\enspace \href{https://dl.acm.org/doi/10.1145/3799417}{\underline{Paper Link}}}
+    {\textit{Md Zarif Ul Alam\textsuperscript{*}, \textbf{\underline{Asif Azad}}\textsuperscript{*}, Md Saiful Islam, Ehsan Hoque, M Saifur Rahman} \enspace \textcolor{mutedColor}{\textsuperscript{*}Equal contribution}}
+    {\textbf{ACM Transactions on Computing for Healthcare} \enspace\textbar\enspace \textbf{Q1; Impact Factor 8.0} \enspace\textbar\enspace Published \enspace\textbar\enspace \href{https://dl.acm.org/doi/10.1145/3799417}{\underline{Paper Link}}}
     {Co-developed \textbf{PULSAR, a positive-unlabeled multi-stream graph-convolutional framework} for Parkinson's screening from webcam finger-tapping videos. By modeling noisy self-reported labels and joint, bone, velocity, and acceleration streams, it achieved \textbf{71.3\% mean accuracy on an independent test set} despite limited reliable labels.}
+}
 
+\newcommand{\vlmpublication}[1]{%
 \selectedpublication
-    {5}
+    {#1}
     {The Art of Saying ‘Maybe’: A Conformal Lens for Uncertainty Benchmarking in VLMs}
     {Mar 2026}
     {\textit{\textbf{\underline{Asif Azad}}, Mohammad Sadat Hossain, MD Sadik Hossain Shanto, M Saifur Rahman, Md Rizwan Parvez}}
-    {\href{https://aclanthology.org/2026.findings-eacl.274/}{\textbf{Findings of EACL 2026}} (published; peer reviewed) \enspace\textbar\enspace \href{https://aclanthology.org/2026.findings-eacl.274/}{\underline{Paper Link}}}
+    {\textbf{Findings of EACL 2026} \enspace\textbar\enspace \textbf{EACL: ICORE A} \enspace\textbar\enspace Published \enspace\textbar\enspace \href{https://aclanthology.org/2026.findings-eacl.274/}{\underline{Paper Link}}}
     {Established a \textbf{comprehensive conformal uncertainty benchmark} of \textbf{18 open- and closed-source VLMs across six multimodal datasets and three scoring functions}, including likelihood proxies for API-only models. The study shows that stronger models generally quantify uncertainty better, while uncertainty estimation remains \textbf{particularly challenging on mathematical and reasoning-intensive tasks}.}
+}
 
+\newcommand{\beyondaccuracypublication}[1]{%
 \selectedpublication
-    {6}
+    {#1}
     {Beyond Accuracy: Enhancing Parkinson's Diagnosis with Uncertainty Quantification of Machine Learning Models}
     {Aug 2025}
     {\textit{\textbf{\underline{Asif Azad}}, Md. Saiful Islam, Ehsan Hoque, M. Saifur Rahman}}
-    {\href{https://link.springer.com/chapter/10.1007/978-3-032-00652-3_3}{\textbf{AIiH 2025, Springer LNCS}} (published; Best Paper Award nominee) \enspace\textbar\enspace \href{https://link.springer.com/chapter/10.1007/978-3-032-00652-3_3}{\underline{Paper Link}} \enspace\textbar\enspace \href{https://github.com/BRAINIAC2677/UQ4PD-ML}{\underline{Code}}}
+    {\textbf{AIiH 2025, Springer LNCS} \enspace\textbar\enspace Published \enspace\textbar\enspace \textbf{Best Paper Award Nomination} \enspace\textbar\enspace \href{https://link.springer.com/chapter/10.1007/978-3-032-00652-3_3}{\underline{Paper Link}} \enspace\textbar\enspace \href{https://github.com/BRAINIAC2677/UQ4PD-ML}{\underline{Code}}}
     {Evaluated \textbf{Monte Carlo Dropout (MCD), Deep Evidential Classification (DEC), and Bayesian Neural Networks (BNNs)} across motor, facial, and speech datasets for Parkinson's diagnosis. The study found \textbf{MCD and BNNs more reliable than DEC} and showed how uncertainty estimates can \textbf{flag ambiguous predictions} to support safer clinical decision-making.}
+}
 
-\section{Honors \& Service}
+\digitalharfpublication{1}
+\harfspeechpublication{2}
+\pulsarpublication{3}
+\beyondaccuracypublication{4}
+\vlmpublication{5}
+\parkpublication{6}
+\trimfinalpublicationspacing
+
+\educationsection
+\experiencesection
+
+\section{Awards, Honors \& Recognition}
 \begin{entry}
-\honorrow{2025}{\textbf{Best Paper Award Nomination}, \textit{Beyond Accuracy}, AI in Healthcare Conference (AIiH)}
-\honorrow{2025}{\textbf{Reviewer}, October cycle, \href{https://aclrollingreview.org/}{ACL Rolling Review (ARR)}}
-\honorrow{2025}{\textbf{Invited Talk}, \textit{AI in Medicine: Transforming Healthcare Today \& Tomorrow}, 52nd Annual National Conference, Ophthalmological Society of Bangladesh}
-\honorrow{2023}{\textbf{IEEE Richard E. Merwin Student Scholarship}; sole Fall 2023 recipient from Bangladesh}
+\honorrow{2025}{\textbf{Featured Profile}, \href{https://www.thedailystar.net/campus/interviews/news/buet-graduates-contributions-ai-healthcare-saudi-arabias-defence-ministry}{\textit{The Daily Star Campus}}, recognized for AI-in-healthcare work at Saudi Arabia's Ministry of Defence}
+\honorrow{2025}{\textbf{Best Paper Award Nomination}, AI in Healthcare Conference (AIiH)}
+\honorrow{2024}{\textbf{Silver Award}, Blockchain Olympiad Bangladesh 2024 \textbar\ Hyperledger Fabric, Solidity}
+\honorrow{2023}{\textbf{IEEE Richard E. Merwin Student Scholarship}, sole Fall 2023 recipient from Bangladesh}
+\honorrow{2023}{\textbf{Champion}, Deep Learning Sprint 2023 \textbar\ Computer Vision, Transformer, Finetuning}
+\honorrow{2023}{\textbf{Champion}, DataVerse Challenge - ITVerse 2023 \textbar\ Natural Language Processing}
+\honorrow{2022}{\textbf{Country First}, IEEE Xtreme 16.0 \textbar\ Competitive Programming}
 \honorrow{2022--24}{\textbf{Dean's List Student Award}, BUET; three consecutive years}
 \end{entry}
 
 \section{Leadership}
 \begin{entry}
-\leadershiprow
-    {Lead Student Coordinator}
-    {\href{https://cse.buet.ac.bd/home/news_detail/200}{BUET CSE Festival 2024}}
-    {2024}
-    {\textbf{Led end-to-end coordination} for the multi-month department festival, securing \textbf{sponsorships} and aligning faculty and student teams to deliver inter-university technical competitions and cultural programs.}
-\leadershiprow
-    {Basketball Team Captain}
-    {University and Hall Teams}
-    {2024}
-    {\textbf{Captained both teams}; led the hall team to the \textbf{2024 Inter-Hall championship} as the \textbf{tournament's top scorer}.}
+\begin{highlights}
+    \item \textbf{Lead Student Coordinator, \href{https://cse.buet.ac.bd/home/news_detail/200}{BUET CSE Festival 2024}:} Led multi-month coordination, secured sponsorships, and aligned faculty and student teams to deliver an inter-university Deep Learning Sprint, hackathon, CTF cybersecurity competition, game jam, ICPC-style programming contest, and poster presentation, alongside cultural, indoor/outdoor, and faculty--student programs.
+    \item \textbf{Basketball Team Captain, BUET University and Hall Teams (2024):} Captained both teams; led the hall team to the Inter-Hall championship as the tournament's top scorer.
+\end{highlights}
 \end{entry}
-\vspace{-0.70em}
+
+\newpage
+\section{Service}
+\begin{entry}
+\begin{highlights}
+    \item \textbf{Reviewer, ACL Rolling Review (2025):} Reviewed research submissions in the October cycle, contributing peer-review service to the computational linguistics community.
+    \item \textbf{Invited Speaker \& Session Co-Chair (2025):} Presented \textit{AI in Medicine: Transforming Healthcare Today \& Tomorrow} and co-chaired the \textit{Power of AI in Medical Science} session at the 52nd Annual National Conference of the Ophthalmological Society of Bangladesh.
+    \item \textbf{Workshop Speaker, University of Dhaka (2025):} Conducted \textit{Python for Scientific Research} for the MRS Student Society, introducing students across disciplines to programming and scientific computing.
+\end{highlights}
+\end{entry}
+
+\section{Mentoring}
+\begin{entry}
+\begin{highlights}
+    \item \textbf{Mentor \& Judge, Solvio AI Hackathon (2025):} Guided 5 of 20 finalist teams through technical and product feedback during a 24-hour final; 3 earned first runner-up, second runner-up, and honorable-mention finishes among 538 competing teams.
+    \item \textbf{IEEE Video and Image Processing Cup Mentor (2025):} Mentored 7 BUET CSE undergraduate students on Team BUET Pixelated, which earned a Special Mention in the global competition.
+    \item \textbf{Competitive Programming Instructor (2021):} Taught foundational algorithms, data structures, and contest problem solving at BUET's beginner coding camp.
+    \item \textbf{Undergraduate Mentoring, BUET:} Mentored BUET CSE undergraduates during my tenure as an Adjunct Lecturer, holding dedicated one-on-one conversations on career planning and academic choices.
+\end{highlights}
+\end{entry}
+\vspace{-0.55em}
 
 \section{References}
 \begin{entry}
-\begin{tabularx}{\linewidth}{@{}X@{\hspace{0.75cm}}X@{}}
+\begin{tabularx}{\linewidth}{@{}X@{\hspace{0.42cm}}X@{\hspace{0.42cm}}X@{}}
     \textbf{\href{https://cse.buet.ac.bd/faculty/faculty_detail/mrahman}{Prof. M Saifur Rahman}} &
+    \textbf{\href{https://www.linkedin.com/in/saifulislam-cse-buet/}{Md Saiful Islam, Ph.D.}} &
     \textbf{\href{https://www.cs.rochester.edu/u/mehoque/}{Prof. Ehsan Hoque}}\\
-    Professor, Department of CSE & Professor of Computer Science\\
-    Bangladesh University of Engineering and Technology & University of Rochester\\
+    \textit{Thesis Supervisor} & \textit{Thesis Mentor} & \textit{Research Lead}\\
+    Professor & Machine Learning Software & Professor\\
+    Computer Science \& Engineering & Engineer & Computer Science\\
+    BUET & Google & University of Rochester\\
+    Dhaka, Bangladesh & Mountain View, California & Rochester, New York\\
     \href{mailto:mrahman@cse.buet.ac.bd}{mrahman@cse.buet.ac.bd} &
+    \href{mailto:msislam@google.com}{msislam@google.com} &
     \href{mailto:mehoque@cs.rochester.edu}{mehoque@cs.rochester.edu}
 \end{tabularx}
 \end{entry}

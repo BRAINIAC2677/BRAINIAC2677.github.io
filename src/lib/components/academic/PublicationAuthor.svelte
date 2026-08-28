@@ -2,6 +2,7 @@
     import type { ResearchAuthor } from "$lib/interfaces/academic";
 
     export let author: ResearchAuthor;
+    export let showAffiliations = false;
 </script>
 
 {#if author.href}
@@ -9,12 +10,15 @@
         class:profile-owner={author.isProfileOwner}
         href={author.href}
         target="_blank"
-        rel="noreferrer">{author.name}</a
+        rel="noreferrer">{author.name}{author.hasEqualContribution ? "*" : ""}</a
     >
 {:else if author.isProfileOwner}
-    <strong class="profile-owner">{author.name}</strong>
+    <strong class="profile-owner">{author.name}{author.hasEqualContribution ? "*" : ""}</strong>
 {:else}
-    <span>{author.name}</span>
+    <span>{author.name}{author.hasEqualContribution ? "*" : ""}</span>
+{/if}
+{#if showAffiliations && author.affiliationIndices?.length}
+    <sup>{author.affiliationIndices.join(",")}</sup>
 {/if}
 
 <style>
@@ -39,5 +43,13 @@
         font-weight: 800;
         text-decoration: none;
         -webkit-box-decoration-break: clone;
+    }
+
+    sup {
+        margin-left: 0.12em;
+        color: var(--accent-strong);
+        font-size: 0.72em;
+        font-weight: 800;
+        line-height: 0;
     }
 </style>

@@ -65,8 +65,8 @@ export const academicProfile: AcademicProfile = {
     cvUrl: "/Asif-Azad_Academic-Resume.pdf",
     email: "asifazad0178@gmail.com",
     links: [
-        { href: "https://github.com/BRAINIAC2677", label: "GitHub" },
         { href: "https://www.linkedin.com/in/asifazad2677", label: "LinkedIn" },
+        { href: "https://github.com/BRAINIAC2677", label: "GitHub" },
     ],
     name: "Asif Azad",
     researchInterests: [
@@ -195,27 +195,58 @@ const researchAuthorUrls: Record<string, string> = {
     "Yahya Bokhari": "https://cemse.kaust.edu.sa/profiles/yahya-bokhari",
 };
 
-function createResearchAuthors(names: string[]): ResearchAuthor[] {
+function createResearchAuthors(
+    names: string[],
+    equalContributors: string[] = [],
+    affiliationIndices: Record<string, number[]> = {},
+): ResearchAuthor[] {
     return names.map((name) => ({
+        affiliationIndices: affiliationIndices[name],
+        hasEqualContribution: equalContributors.includes(name),
         href: researchAuthorUrls[name],
         isProfileOwner: name === academicProfile.name,
         name,
     }));
 }
 
-export const selectedResearch: ResearchWork[] = [
+const researchWorks: ResearchWork[] = [
     {
-        authors: createResearchAuthors([
-            "Asif Azad",
-            "MD Sadik Hossain Shanto",
-            "Mohammad Sadat Hossain",
-            "Bdour Alwuqaysi",
-            "Sabri Boughorbel",
-            "Yahya Bokhari",
-            "Abdulrhman Aljouie",
-            "Ayah Othman Sindi",
-            "Ehsan Hoque",
-        ]),
+        abstract: [
+            "Automated phoneme-level pronunciation assessment is vital for scalable speech therapy and language learning, yet validated tools for Arabic remain scarce. Harf-Speech is a modular system that scores Arabic pronunciation at the phoneme level on a clinical scale by combining an MSA phonetizer, a fine-tuned speech-to-phoneme model, Levenshtein alignment, and a blended scorer using longest common subsequence and edit-distance metrics.",
+            "The study fine-tunes three ASR architectures on Arabic phoneme data and benchmarks them against zero-shot multimodal models. The strongest model achieves an 8.92% phoneme error rate. Clinical validation by three certified speech-language pathologists shows a Pearson correlation of 0.791 and ICC(2,1) of 0.659 with mean expert scores, demonstrating clinically aligned and interpretable assessment comparable to inter-rater expert agreement.",
+        ],
+        affiliations: [
+            "Ministry of Defense, Saudi Arabia",
+            "Ability Center, Saudi Arabia",
+            "University of Rochester, USA",
+        ],
+        authors: createResearchAuthors(
+            [
+                "Asif Azad",
+                "MD Sadik Hossain Shanto",
+                "Mohammad Sadat Hossain",
+                "Bdour Alwuqaysi",
+                "Sabri Boughorbel",
+                "Yahya Bokhari",
+                "Abdulrhman Aljouie",
+                "Ayah Othman Sindi",
+                "Ehsan Hoque",
+            ],
+            [],
+            {
+                "Abdulrhman Aljouie": [1],
+                "Asif Azad": [1],
+                "Ayah Othman Sindi": [2],
+                "Bdour Alwuqaysi": [1],
+                "Ehsan Hoque": [1, 3],
+                "MD Sadik Hossain Shanto": [1],
+                "Mohammad Sadat Hossain": [1],
+                "Sabri Boughorbel": [1],
+                "Yahya Bokhari": [1],
+            },
+        ),
+        authorship: "First author",
+        citation: "Azad, A., Shanto, M. S. H., Hossain, M. S., Alwuqaysi, B., Boughorbel, S., Bokhari, Y., Aljouie, A., Sindi, A. O., & Hoque, E. (2026). Harf-Speech: A Clinically Aligned Framework for Arabic Phoneme-Level Speech Assessment. Accepted at Interspeech 2026.",
         description: [
             { text: "Developed a modular, " },
             { isEmphasized: true, text: "clinically aligned Arabic pronunciation-assessment framework" },
@@ -225,27 +256,66 @@ export const selectedResearch: ResearchWork[] = [
             { isEmphasized: true, text: "strong agreement with speech-language pathologists (r = 0.791)" },
             { text: ", enabling scalable assessment for an underserved language." },
         ],
-        links: [{ href: "https://arxiv.org/abs/2604.06191", label: "arXiv" }],
+        figure: {
+            alt: "Harf-Speech methodology from phoneme extraction through alignment and clinical scoring",
+            caption: "Harf-Speech pipeline from phoneme extraction to interpretable word-level clinical scoring.",
+            src: "/images/publications/harf-speech.webp",
+        },
+        links: [
+            { href: "https://arxiv.org/abs/2604.06191", label: "arXiv" },
+            { href: "https://arxiv.org/pdf/2604.06191", label: "PDF" },
+        ],
         publicationDate: "September 2026",
-        status: "Accepted · Proceedings forthcoming",
+        slug: "harf-speech",
         title: "Harf-Speech: A Clinically Aligned Framework for Arabic Phoneme-Level Speech Assessment",
         venue: {
             href: "https://www.isca-speech.org/event-5462701",
             name: "Interspeech 2026",
         },
+        venueSignals: [
+            {
+                label: "ICORE A · 2026",
+                title: "Interspeech is ranked A by ICORE 2026",
+            },
+        ],
     },
     {
-        authors: createResearchAuthors([
-            "Asif Azad",
-            "Mohammad Sadat Hossain",
-            "MD Sadik Hossain Shanto",
-            "Sabri Boughorbel",
-            "Abdulrhman Aljouie",
-            "Bdour Alwuqaysi",
-            "Yahya Bokhari",
-            "Ayah Othman Sindi",
-            "Ehsan Hoque",
-        ]),
+        abstract: [
+            "Children with Autism Spectrum Disorder in Arabic-speaking countries face compounded barriers to effective speech and language therapy, including a shortage of specialists, limited service reach beyond urban centers, and a scarcity of culturally grounded digital therapy materials. Digital Harf is a pervasive, multimodal AI platform that extends clinician-led speech and language therapy into the home.",
+            "The platform integrates language therapy, speech intelligibility, and picture-description modules within a workflow that adapts to each child’s performance. Its Agentic Synthetic Data Engine generates culturally relevant images, prompts, and language tasks under explicit therapeutic and cultural criteria. Evaluation by 13 licensed speech-language pathologists produced a 90.1% clinical acceptance rate for generated content without manual curation, while the broader platform is undergoing randomized clinical evaluation.",
+        ],
+        affiliations: [
+            "Ministry of Defense, Riyadh, Saudi Arabia",
+            "Ability Center, Saudi Arabia",
+            "University of Rochester, Rochester, NY, USA",
+        ],
+        authors: createResearchAuthors(
+            [
+                "Asif Azad",
+                "Mohammad Sadat Hossain",
+                "MD Sadik Hossain Shanto",
+                "Sabri Boughorbel",
+                "Abdulrhman Aljouie",
+                "Bdour Alwuqaysi",
+                "Yahya Bokhari",
+                "Ayah Othman Sindi",
+                "Ehsan Hoque",
+            ],
+            [],
+            {
+                "Abdulrhman Aljouie": [1],
+                "Asif Azad": [1],
+                "Ayah Othman Sindi": [2],
+                "Bdour Alwuqaysi": [1],
+                "Ehsan Hoque": [1, 3],
+                "MD Sadik Hossain Shanto": [1],
+                "Mohammad Sadat Hossain": [1],
+                "Sabri Boughorbel": [1],
+                "Yahya Bokhari": [1],
+            },
+        ),
+        authorship: "First author",
+        citation: "Azad, A., Hossain, M. S., Shanto, M. S. H., Boughorbel, S., Aljouie, A., Alwuqaysi, B., Bokhari, Y., Sindi, A. O., & Hoque, E. (2026). Digital Harf: A Clinically Integrated Multimodal AI System for Pervasive Arabic Speech and Language Therapy. arXiv preprint arXiv:2607.27212.",
         description: [
             { text: "Built a " },
             { isEmphasized: true, text: "clinically integrated multimodal AI platform" },
@@ -258,49 +328,98 @@ export const selectedResearch: ResearchWork[] = [
             { text: "." },
         ],
         links: [
-            { href: "https://arxiv.org/abs/2607.27212", label: "Paper" },
+            { href: "https://arxiv.org/abs/2607.27212", label: "arXiv" },
             { href: "https://digitalharf.modhs.med.sa/", label: "Project" },
         ],
         publicationDate: "May 2026",
-        status: "Preprint",
+        slug: "digital-harf",
         title: "Digital Harf: A Clinically Integrated Multimodal AI System for Pervasive Arabic Speech and Language Therapy",
         venue: {
-            href: "https://arxiv.org/abs/2607.27212",
-            name: "Preprint",
+            href: "https://chi2027.acm.org/",
+            name: "Targeting CHI 2027",
         },
     },
     {
-        authors: createResearchAuthors([
-            "Md Saiful Islam",
-            "Tariq Adnan",
-            "Abdelrahman Abdelkader",
-            "Zipei Liu",
-            "Evelyn Ma",
-            "Sooyong Park",
-            "Asif Azad",
-            "Pai Liu",
-            "Meghan Pawlik",
-            "Emily Hartman",
-            "Erin Shelton",
-            "Kristina B. Larson",
-            "M. Saifur Rahman",
-            "Cathe Schwartz",
-            "Karen Jaffe",
-            "Jamie L. Adams",
-            "Ruth B. Schneider",
-            "Jan Freyberg",
-            "E. Ray Dorsey",
-            "Ehsan Hoque",
-        ]),
+        abstract: [
+            "Timely detection of Parkinson’s disease remains limited by reliance on costly and geographically inaccessible in-person neurological evaluations. PARK is a web-based AI tool that screens for Parkinson’s disease using short webcam recordings of facial-expression, motor, and speech tasks.",
+            "Across eight independent studies involving 1,865 participants, task-specific neural networks estimate risk and uncertainty before an uncertainty-calibrated fusion model combines their predictions. PARK achieves 80.2–80.6% accuracy and 0.85–0.87 AUROC across internal and external cohorts, remains stable across demographic groups, and receives favorable usability ratings in supervised and unsupervised settings. The findings support accessible, equitable, and uncertainty-aware remote neurological screening.",
+        ],
+        affiliations: [
+            "University of Rochester, Rochester, NY, USA",
+            "Bangladesh University of Engineering and Technology, Dhaka, Bangladesh",
+            "Atria Health and Research Institute, New York, NY, USA",
+            "University of Rochester Medical Center, Rochester, NY, USA",
+            "InMotion, Beachwood, OH, USA",
+            "Harvard Medical School, Boston, MA, USA",
+            "Google Research, London, UK",
+            "Ministry of Defense, Riyadh, Saudi Arabia",
+        ],
+        authors: createResearchAuthors(
+            [
+                "Md Saiful Islam",
+                "Tariq Adnan",
+                "Abdelrahman Abdelkader",
+                "Zipei Liu",
+                "Evelyn Ma",
+                "Sooyong Park",
+                "Asif Azad",
+                "Pai Liu",
+                "Meghan Pawlik",
+                "Emily Hartman",
+                "Erin Shelton",
+                "Kristina B. Larson",
+                "M. Saifur Rahman",
+                "Cathe Schwartz",
+                "Karen Jaffe",
+                "Jamie L. Adams",
+                "Ruth B. Schneider",
+                "Jan Freyberg",
+                "E. Ray Dorsey",
+                "Ehsan Hoque",
+            ],
+            [],
+            {
+                "Abdelrahman Abdelkader": [1],
+                "Asif Azad": [2, 3],
+                "Cathe Schwartz": [5],
+                "E. Ray Dorsey": [3, 4],
+                "Ehsan Hoque": [1, 8],
+                "Emily Hartman": [4],
+                "Erin Shelton": [5],
+                "Evelyn Ma": [1],
+                "Jamie L. Adams": [4],
+                "Jan Freyberg": [7],
+                "Karen Jaffe": [5],
+                "Kristina B. Larson": [6],
+                "M. Saifur Rahman": [2],
+                "Md Saiful Islam": [1, 2],
+                "Meghan Pawlik": [4],
+                "Pai Liu": [1],
+                "Ruth B. Schneider": [4],
+                "Sooyong Park": [1],
+                "Tariq Adnan": [1, 2],
+                "Zipei Liu": [1],
+            },
+        ),
+        citation: "Islam, M. S., Adnan, T., Abdelkader, A., et al. (2026). Validation of remote multimodal AI screening for Parkinson disease across diverse settings. Communications Medicine.",
         description: [
             { text: "Validated " },
             { isEmphasized: true, text: "PARK, an uncertainty-aware multimodal screening system" },
-            { text: " that fuses facial, motor, and speech tasks across " },
+            { text: " across " },
             { isEmphasized: true, text: "1,865 participants in supervised and at-home settings" },
-            { text: ". It achieved " },
+            { text: ", achieving " },
             { isEmphasized: true, text: "0.85–0.87 AUROC" },
-            { text: " while maintaining performance across diverse cohorts, supporting accessible remote Parkinson’s screening." },
+            { text: ". Contribution: Collaborated with the first author to " },
+            { isEmphasized: true, text: "design and implement the paper’s visualizations" },
+            { text: " and contributed to " },
+            { isEmphasized: true, text: "UFNet’s uncertainty-quantification analysis" },
+            { text: "." },
         ],
+        figure: {
+            alt: "PARK framework combining facial motor and speech tasks with uncertainty-aware UFNet fusion",
+            caption: "PARK combines facial, motor, and speech tasks through uncertainty-aware UFNet fusion.",
+            src: "/images/publications/parkinson-screening-validation.webp",
+        },
         links: [
             {
                 href: "https://www.nature.com/articles/s43856-026-01606-6",
@@ -308,21 +427,52 @@ export const selectedResearch: ResearchWork[] = [
             },
         ],
         publicationDate: "May 2026",
-        status: "Published · Open access",
+        slug: "parkinson-screening-validation",
         title: "Validation of Remote Multimodal AI Screening for Parkinson Disease Across Diverse Settings",
         venue: {
             href: "https://www.nature.com/articles/s43856-026-01606-6",
             name: "Communications Medicine",
         },
+        venueSignals: [
+            {
+                label: "Q1 journal",
+                title: "Communications Medicine is ranked Q1",
+            },
+            {
+                label: "Impact Factor 7.4",
+                title: "2025 Journal Impact Factor from Nature Portfolio",
+            },
+        ],
     },
     {
-        authors: createResearchAuthors([
-            "Md Zarif Ul Alam",
-            "Asif Azad",
-            "Md Saiful Islam",
-            "Ehsan Hoque",
-            "M Saifur Rahman",
-        ]),
+        abstract: [
+            "PULSAR is a method for screening Parkinson’s disease from webcam-recorded videos of the finger-tapping task used in the MDS-UPDRS. It is trained and evaluated on data from 382 participants, including 183 participants who self-reported Parkinson’s disease.",
+            "An adaptive graph convolutional network learns task-specific spatiotemporal relationships, while a multi-stream architecture captures finger-joint location, tapping velocity, and acceleration. Positive-unlabeled learning addresses potentially undiagnosed cases among self-reported negative labels and outperforms traditional supervised learning. PULSAR achieves 80.95% validation accuracy and 71.29% mean accuracy on an independent test set, demonstrating promise for accessible screening when reliable clinical labels are scarce.",
+        ],
+        affiliations: [
+            "Bangladesh University of Engineering and Technology, Bangladesh",
+            "University of Massachusetts Amherst, USA",
+            "University of Rochester, USA",
+        ],
+        authors: createResearchAuthors(
+            [
+                "Md Zarif Ul Alam",
+                "Asif Azad",
+                "Md Saiful Islam",
+                "Ehsan Hoque",
+                "M Saifur Rahman",
+            ],
+            ["Md Zarif Ul Alam", "Asif Azad"],
+            {
+                "Asif Azad": [1],
+                "Ehsan Hoque": [3],
+                "M Saifur Rahman": [1],
+                "Md Saiful Islam": [3],
+                "Md Zarif Ul Alam": [1, 2],
+            },
+        ),
+        authorship: "Co-first author",
+        citation: "Alam, M. Z. U., Azad, A., Islam, M. S., Hoque, E., & Rahman, M. S. (2026). PULSAR: Graph-Based Positive Unlabeled Learning with Multi-Stream Adaptive Convolutions for Parkinson’s Disease Recognition. ACM Transactions on Computing for Healthcare, 7(2). https://doi.org/10.1145/3799417",
         description: [
             { text: "Co-developed " },
             { isEmphasized: true, text: "PULSAR, a positive-unlabeled multi-stream graph-convolutional framework" },
@@ -330,28 +480,67 @@ export const selectedResearch: ResearchWork[] = [
             { isEmphasized: true, text: "71.3% mean accuracy on an independent test set" },
             { text: " despite limited reliable labels." },
         ],
+        figure: {
+            alt: "PULSAR pipeline from webcam finger tapping to multi-stream adaptive graph convolution",
+            caption: "PULSAR screening pipeline from webcam finger tapping to multi-stream adaptive graph convolution.",
+            src: "/images/publications/pulsar.webp",
+        },
         links: [
             {
                 href: "https://dl.acm.org/doi/10.1145/3799417",
                 label: "Paper",
             },
+            {
+                href: "https://zarif98sjs.github.io/PULSAR/",
+                label: "Project",
+            },
+            {
+                href: "https://github.com/BRAINIAC2677/pulsar",
+                label: "Code",
+            },
         ],
         publicationDate: "April 2026",
-        status: "Published",
+        slug: "pulsar",
         title: "PULSAR: Graph-Based Positive Unlabeled Learning with Multi-Stream Adaptive Convolutions for Parkinson’s Disease Recognition",
         venue: {
             href: "https://dl.acm.org/doi/10.1145/3799417",
             name: "ACM Transactions on Computing for Healthcare",
         },
+        venueSignals: [
+            {
+                label: "Q1 · Impact Factor 8.0",
+                title: "2025 Journal Citation Reports metrics reported by ACM",
+            },
+        ],
     },
     {
-        authors: createResearchAuthors([
-            "Asif Azad",
-            "Mohammad Sadat Hossain",
-            "MD Sadik Hossain Shanto",
-            "M Saifur Rahman",
-            "Md Rizwan Parvez",
-        ]),
+        abstract: [
+            "Vision-language models have made substantial progress in complex visual understanding, but their ability to quantify uncertainty has received less attention. This study evaluates 18 open- and closed-source models across six multimodal datasets and three scoring functions, including instruction-guided likelihood proxies for API-only models without token-level probability access.",
+            "The results show that larger models generally quantify uncertainty more effectively and that predictions made with greater certainty tend to be more accurate. Mathematical and reasoning-intensive tasks remain particularly challenging across models. The study establishes a broad foundation for evaluating uncertainty and reliability in multimodal systems.",
+        ],
+        affiliations: [
+            "Bangladesh University of Engineering and Technology, Dhaka, Bangladesh",
+            "Qatar Computing Research Institute, HBKU, Doha, Qatar",
+        ],
+        authors: createResearchAuthors(
+            [
+                "Asif Azad",
+                "Mohammad Sadat Hossain",
+                "MD Sadik Hossain Shanto",
+                "M Saifur Rahman",
+                "Md Rizwan Parvez",
+            ],
+            [],
+            {
+                "Asif Azad": [1],
+                "M Saifur Rahman": [1],
+                "MD Sadik Hossain Shanto": [1],
+                "Md Rizwan Parvez": [2],
+                "Mohammad Sadat Hossain": [1],
+            },
+        ),
+        authorship: "First author",
+        citation: "Azad, A., Hossain, M. S., Shanto, M. S. H., Rahman, M. S., & Parvez, M. R. (2026). The Art of Saying ‘Maybe’: A Conformal Lens for Uncertainty Benchmarking in VLMs. Findings of the Association for Computational Linguistics: EACL 2026, 5185–5201.",
         description: [
             { text: "Established a " },
             { isEmphasized: true, text: "comprehensive conformal uncertainty benchmark" },
@@ -372,20 +561,46 @@ export const selectedResearch: ResearchWork[] = [
             },
         ],
         publicationDate: "March 2026",
-        status: "Published · Peer reviewed",
+        slug: "conformal-uncertainty-vlms",
         title: "The Art of Saying ‘Maybe’: A Conformal Lens for Uncertainty Benchmarking in VLMs",
         venue: {
             href: "https://aclanthology.org/2026.findings-eacl.274/",
             name: "Findings of EACL 2026",
         },
+        venueSignals: [
+            {
+                label: "EACL · ICORE A",
+                title: "EACL is ranked A by ICORE 2026; Findings is not ranked separately",
+            },
+        ],
     },
     {
-        authors: createResearchAuthors([
-            "Asif Azad",
-            "Md. Saiful Islam",
-            "Ehsan Hoque",
-            "M. Saifur Rahman",
-        ]),
+        abstract: [
+            "As machine-learning systems show growing promise for clinical diagnosis, establishing their reliability is essential for responsible medical deployment. This work evaluates Monte Carlo Dropout, Deep Evidential Classification, and Bayesian Neural Networks across motor, facial, and speech datasets for Parkinson’s disease detection.",
+            "Deep Evidential Classification performs poorly in both diagnostic accuracy and uncertainty assessment, while Monte Carlo Dropout and Bayesian Neural Networks provide more dependable uncertainty estimates. Identifying ambiguous predictions through uncertainty estimation can reduce diagnostic errors and support safer adoption of AI in medicine.",
+        ],
+        affiliations: [
+            "Bangladesh University of Engineering and Technology, Dhaka, Bangladesh",
+            "University of Rochester, Rochester, NY, USA",
+            "Atria Health and Research Institute, New York, NY, USA",
+        ],
+        authors: createResearchAuthors(
+            [
+                "Asif Azad",
+                "Md. Saiful Islam",
+                "Ehsan Hoque",
+                "M. Saifur Rahman",
+            ],
+            [],
+            {
+                "Asif Azad": [1, 3],
+                "Ehsan Hoque": [2, 3],
+                "M. Saifur Rahman": [1],
+                "Md. Saiful Islam": [1, 2],
+            },
+        ),
+        authorship: "First author",
+        citation: "Azad, A., Islam, M. S., Hoque, E., & Rahman, M. S. (2025). Beyond Accuracy: Enhancing Parkinson’s Diagnosis with Uncertainty Quantification of Machine Learning Models. In Artificial Intelligence in Healthcare (AIiH 2025), LNCS 16038, 33–46. Springer.",
         description: [
             { text: "Evaluated " },
             { isEmphasized: true, text: "Monte Carlo Dropout (MCD), Deep Evidential Classification (DEC), and Bayesian Neural Networks (BNNs)" },
@@ -402,8 +617,9 @@ export const selectedResearch: ResearchWork[] = [
             },
             { href: "https://github.com/BRAINIAC2677/UQ4PD-ML", label: "Code" },
         ],
+        distinction: "AIiH 2025 Best Paper Award nominee",
         publicationDate: "August 2025",
-        status: "Published · Best Paper Award nominee",
+        slug: "beyond-accuracy",
         title: "Beyond Accuracy: Enhancing Parkinson’s Diagnosis with Uncertainty Quantification of Machine Learning Models",
         venue: {
             href: "https://link.springer.com/chapter/10.1007/978-3-032-00652-3_3",
@@ -411,6 +627,19 @@ export const selectedResearch: ResearchWork[] = [
         },
     },
 ];
+
+const websitePublicationOrder = [
+    "digital-harf",
+    "harf-speech",
+    "pulsar",
+    "beyond-accuracy",
+    "parkinson-screening-validation",
+    "conformal-uncertainty-vlms",
+];
+
+export const selectedResearch = websitePublicationOrder
+    .map((slug) => researchWorks.find((work) => work.slug === slug))
+    .filter((work): work is ResearchWork => work !== undefined);
 
 export const academicExperience: AcademicExperience[] = [
     {

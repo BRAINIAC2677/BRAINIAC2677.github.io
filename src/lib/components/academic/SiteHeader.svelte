@@ -2,15 +2,19 @@
     import logoDark from "$lib/images/logo-dark.png";
     import logoLight from "$lib/images/logo-light.png";
     import ThemeToggle from "$lib/components/academic/ThemeToggle.svelte";
+    import ProfileLinkIcon from "$lib/components/academic/ProfileLinkIcon.svelte";
 
     export let cvUrl = "";
+    export let homeHref = "#top";
     export let name: string;
+    export let scholarUrl = "";
+    export let sectionPrefix = "";
 
     let navigationOpen = false;
 
     const navigationItems = [
-        { href: "#news", label: "News" },
         { href: "#publications", label: "Publications" },
+        { href: "#news", label: "News" },
         { href: "#experience", label: "Experience" },
         { href: "#education", label: "Education" },
         { href: "#leadership", label: "Leadership" },
@@ -28,7 +32,7 @@
 
 <header class="site-header">
     <div class="page-shell site-header__inner">
-        <a class="site-wordmark" href="#top" aria-label={name} on:click={closeNavigation}>
+        <a class="site-wordmark" href={homeHref} aria-label={name} on:click={closeNavigation}>
             <img class="site-wordmark__logo--dark" src={logoDark} alt="" />
             <img class="site-wordmark__logo--light" src={logoLight} alt="" />
         </a>
@@ -52,10 +56,35 @@
             aria-label="Primary navigation"
         >
             {#each navigationItems as item}
-                <a href={item.href} on:click={closeNavigation}>{item.label}</a>
+                <a href={`${sectionPrefix}${item.href}`} on:click={closeNavigation}>{item.label}</a>
             {/each}
+            {#if scholarUrl}
+                <a
+                    class="navigation-icon-link"
+                    href={scholarUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="Google Scholar"
+                    title="Google Scholar"
+                    on:click={closeNavigation}
+                >
+                    <ProfileLinkIcon label="Google Scholar" />
+                    <span>Google Scholar</span>
+                </a>
+            {/if}
             {#if cvUrl}
-                <a href={cvUrl} target="_blank" rel="noreferrer">CV</a>
+                <a
+                    class="navigation-icon-link"
+                    href={cvUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="CV"
+                    title="CV"
+                    on:click={closeNavigation}
+                >
+                    <ProfileLinkIcon label="CV" />
+                    <span>CV</span>
+                </a>
             {/if}
             <ThemeToggle />
         </nav>
@@ -73,7 +102,7 @@
     }
 
     .site-header__inner {
-        min-height: 4rem;
+        min-height: 3.8rem;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -107,20 +136,40 @@
 
     .site-navigation {
         display: flex;
-        gap: 1.25rem;
+        gap: 1.1rem;
         align-items: center;
     }
 
     .site-navigation a {
         color: var(--muted-strong);
-        font-size: 0.72rem;
-        font-weight: 600;
+        font-size: 0.78rem;
+        font-weight: 650;
         text-decoration: none;
         transition: color 160ms ease;
     }
 
     .site-navigation a:hover {
         color: var(--accent);
+    }
+
+    .navigation-icon-link {
+        width: 1.8rem;
+        height: 1.8rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--accent-strong) !important;
+    }
+
+    .navigation-icon-link span {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
     }
 
     .navigation-toggle {
@@ -140,7 +189,7 @@
         background: var(--ink);
     }
 
-    @media (max-width: 760px) {
+    @media (max-width: 860px) {
         .navigation-toggle {
             display: block;
         }
@@ -165,7 +214,23 @@
         .site-navigation a {
             width: 100%;
             padding: 0.3rem 0;
-            font-size: 0.9rem;
+            font-size: 0.94rem;
+        }
+
+        .navigation-icon-link {
+            width: 100%;
+            height: auto;
+            justify-content: flex-start;
+            gap: 0.55rem;
+        }
+
+        .navigation-icon-link span {
+            position: static;
+            width: auto;
+            height: auto;
+            overflow: visible;
+            clip: auto;
+            white-space: normal;
         }
     }
 </style>

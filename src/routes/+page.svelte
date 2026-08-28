@@ -1,8 +1,8 @@
 <script lang="ts">
-    import SiteFooter from "$lib/components/academic/SiteFooter.svelte";
-    import SiteHeader from "$lib/components/academic/SiteHeader.svelte";
     import HeroSection from "$lib/components/academic/HeroSection.svelte";
     import NewsSection from "$lib/components/academic/NewsSection.svelte";
+    import SiteFooter from "$lib/components/academic/SiteFooter.svelte";
+    import SiteHeader from "$lib/components/academic/SiteHeader.svelte";
     import ResearchSection from "$lib/components/academic/ResearchSection.svelte";
     import EducationSection from "$lib/components/academic/EducationSection.svelte";
     import ExperienceSection from "$lib/components/academic/ExperienceSection.svelte";
@@ -18,12 +18,16 @@
     />
 </svelte:head>
 
-<SiteHeader name={academicProfile.name} cvUrl={academicProfile.cvUrl} />
+<SiteHeader
+    name={academicProfile.name}
+    cvUrl={academicProfile.cvUrl}
+    scholarUrl={academicProfile.scholarUrl}
+/>
 
 <main>
     <HeroSection profile={academicProfile} />
-    <NewsSection updates={academicUpdates} />
     <ResearchSection work={selectedResearch} />
+    <NewsSection updates={academicUpdates} />
     <ExperienceSection experience={academicExperience} />
     <EducationSection {education} honors={selectedHonors} />
     <LeadershipSection leadership={academicLeadership} />

@@ -29,6 +29,8 @@ export interface ResearchLink {
 }
 
 export interface ResearchAuthor {
+    affiliationIndices?: number[];
+    hasEqualContribution?: boolean;
     href?: string;
     isProfileOwner: boolean;
     name: string;
@@ -39,14 +41,33 @@ export interface ResearchVenue {
     name: string;
 }
 
+export interface ResearchSignal {
+    label: string;
+    title: string;
+}
+
+export interface ResearchFigure {
+    alt: string;
+    caption: string;
+    src: string;
+}
+
 export interface ResearchWork {
+    abstract: string[];
+    affiliations: string[];
     authors: ResearchAuthor[];
+    authorship?: "Co-first author" | "First author";
+    citation: string;
     description: RichTextPart[];
+    distinction?: string;
+    figure?: ResearchFigure;
     links: ResearchLink[];
     publicationDate: string;
-    status: string;
+    slug: string;
+    status?: string;
     title: string;
     venue: ResearchVenue;
+    venueSignals?: ResearchSignal[];
 }
 
 export interface RichTextPart {

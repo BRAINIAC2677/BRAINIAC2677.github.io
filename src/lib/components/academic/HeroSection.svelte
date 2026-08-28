@@ -3,6 +3,7 @@
     import type { AcademicProfile } from "$lib/interfaces/academic";
     import AcademicLink from "$lib/components/academic/AcademicLink.svelte";
     import WanderingLine from "$lib/components/academic/WanderingLine.svelte";
+    import ProfileLinkIcon from "$lib/components/academic/ProfileLinkIcon.svelte";
 
     export let profile: AcademicProfile;
 </script>
@@ -13,6 +14,29 @@
         <h1>{profile.name}</h1>
         <p class="profile__affiliation">{profile.affiliation}</p>
         <p class="profile__availability">{profile.status}</p>
+
+        <nav class="profile__links" aria-label="Primary profile links">
+            <a href={`mailto:${profile.email}`} aria-label="Email" title="Email">
+                <ProfileLinkIcon label="Email" />
+            </a>
+            <a
+                href={profile.scholarUrl}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Google Scholar"
+                title="Google Scholar"
+            >
+                <ProfileLinkIcon label="Google Scholar" />
+            </a>
+            {#each profile.links as link}
+                <a href={link.href} target="_blank" rel="noreferrer" aria-label={link.label} title={link.label}>
+                    <ProfileLinkIcon label={link.label} />
+                </a>
+            {/each}
+            <a href={profile.cvUrl} target="_blank" rel="noreferrer" aria-label="CV" title="CV">
+                <ProfileLinkIcon label="CV" />
+            </a>
+        </nav>
 
         <div class="profile__biography">
             {#each profile.biography as paragraph}
@@ -39,14 +63,6 @@
             </div>
         </section>
 
-        <nav class="profile__links" aria-label="Primary profile links">
-            <a href={`mailto:${profile.email}`}>Email</a>
-            <AcademicLink href={profile.scholarUrl} tone="accent">Google Scholar</AcademicLink>
-            {#each profile.links as link}
-                <AcademicLink href={link.href} tone="accent">{link.label}</AcademicLink>
-            {/each}
-            <AcademicLink href={profile.cvUrl} tone="accent">CV</AcademicLink>
-        </nav>
     </div>
 
     <aside class="profile__aside">
@@ -63,7 +79,7 @@
         grid-template-columns: minmax(0, 1fr) 14.5rem;
         gap: clamp(2.5rem, 7vw, 5.5rem);
         align-items: start;
-        padding-top: clamp(2.75rem, 6vw, 4.5rem);
+        padding-top: clamp(1.45rem, 3vw, 2.35rem);
     }
 
     .profile__role {
@@ -75,7 +91,7 @@
     }
 
     h1 {
-        margin-top: 0.55rem;
+        margin-top: 0.4rem;
         font-family: var(--font-display);
         font-size: clamp(3.5rem, 7vw, 5.25rem);
         font-weight: 500;
@@ -84,14 +100,14 @@
     }
 
     .profile__affiliation {
-        margin-top: 0.75rem;
+        margin-top: 0.6rem;
         color: var(--muted);
         font-size: 0.77rem;
         font-weight: 600;
     }
 
     .profile__availability {
-        margin-top: 0.38rem;
+        margin-top: 0.3rem;
         color: var(--muted-strong);
         font-size: 0.72rem;
         font-weight: 600;
@@ -99,9 +115,9 @@
 
     .profile__biography {
         display: grid;
-        gap: 0.65rem;
-        margin-top: 1.4rem;
-        padding-top: 1.1rem;
+        gap: 0.55rem;
+        margin-top: 1.05rem;
+        padding-top: 0.85rem;
         border-top: 1px solid var(--border-strong);
     }
 
@@ -109,12 +125,12 @@
         max-width: 49rem;
         color: var(--muted-strong);
         font-size: 0.85rem;
-        line-height: 1.7;
+        line-height: 1.64;
     }
 
     .profile__research {
-        margin-top: 1rem;
-        padding: 0.9rem 1rem 0.85rem;
+        margin-top: 0.75rem;
+        padding: 0.75rem 0.9rem 0.72rem;
         border-left: 2px solid var(--accent);
         background: color-mix(in srgb, var(--surface) 82%, transparent);
     }
@@ -129,19 +145,19 @@
 
     .profile__research > p {
         max-width: 49rem;
-        margin-top: 0.45rem;
+        margin-top: 0.38rem;
         color: var(--muted-strong);
         font-size: 0.8rem;
         font-weight: 600;
-        line-height: 1.58;
+        line-height: 1.52;
     }
 
     .profile__research-interests {
         display: flex;
         gap: 0.4rem 0.75rem;
         flex-wrap: wrap;
-        margin-top: 0.65rem;
-        padding-top: 0.62rem;
+        margin-top: 0.5rem;
+        padding-top: 0.5rem;
         border-top: 1px solid var(--border);
         align-items: center;
         color: var(--muted-strong);
@@ -160,17 +176,31 @@
 
     .profile__links {
         display: flex;
-        gap: 0.65rem 1.1rem;
+        gap: 0.62rem;
         flex-wrap: wrap;
-        margin-top: 1.05rem;
-        font-size: 0.7rem;
-        font-weight: 700;
+        margin-top: 0.8rem;
     }
 
     .profile__links > a {
+        width: 2.8rem;
+        height: 2.8rem;
+        display: grid;
+        place-items: center;
+        color: var(--muted-strong);
+        text-decoration: none;
+        transition:
+            color 150ms ease,
+            transform 150ms ease;
+    }
+
+    .profile__links > a:hover {
         color: var(--accent-strong);
-        text-decoration-color: color-mix(in srgb, var(--accent) 45%, transparent);
-        text-underline-offset: 0.22rem;
+        transform: translateY(-2px);
+    }
+
+    .profile__links :global(svg) {
+        width: 1.72rem;
+        height: 1.72rem;
     }
 
     .profile__aside {
@@ -197,7 +227,8 @@
     @media (max-width: 700px) {
         .profile {
             grid-template-columns: 1fr;
-            gap: 2rem;
+            gap: 1.55rem;
+            padding-top: 1.25rem;
         }
 
         .profile__aside {
