@@ -1,5 +1,5 @@
 <script lang="ts">
-    import portrait from "$lib/images/academic-portrait.jpeg";
+    import portrait from "$lib/images/asif-dp.jpg";
     import type { AcademicProfile } from "$lib/interfaces/academic";
     import AcademicLink from "$lib/components/academic/AcademicLink.svelte";
     import WanderingLine from "$lib/components/academic/WanderingLine.svelte";
